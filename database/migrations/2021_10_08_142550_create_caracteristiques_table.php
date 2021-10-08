@@ -15,7 +15,8 @@ class CreateCaracteristiquesTable extends Migration
     {
         Schema::create('caracteristiques', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('categorie_id')->constrained('categories');
+            $table->unsignedBigInteger('categorie_id');
+            $table->foreign('categorie_id')->references('id')->on('categories');
             $table->string('nom');
             $table->text('description');
             $table->timestamps();
