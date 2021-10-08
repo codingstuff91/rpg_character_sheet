@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use App\Models\Personnage;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -19,7 +20,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'pseudo',
         'email',
+        'role',
         'password',
     ];
 
@@ -41,4 +44,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Un utilisateur peut posseder plusieurs personnages
+    public function personnages()
+    {
+        return $this->hasMany(Personnage::class);
+    }
 }
