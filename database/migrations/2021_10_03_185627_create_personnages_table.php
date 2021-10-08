@@ -17,15 +17,7 @@ class CreatePersonnagesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->string('nom');
-            $table->string('chronique');
-            $table->string('concept');
-            $table->string('clan');
-            $table->integer('generation');
-            $table->string('sire');
-            $table->integer('sante');
-            $table->integer('volonte');
-            $table->integer('humanite');
-            $table->integer('experience');
+            $table->string('jeu');
             $table->timestamps();
         });
     }
