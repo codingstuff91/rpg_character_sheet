@@ -25,5 +25,57 @@ class CategorieSeeder extends Seeder
         Categorie::create([
             'nom' => 'Attributs_sociaux',
         ]);
+
+        Categorie::create([
+            'nom' => 'Capacités_talents',
+        ]);
+
+        Categorie::create([
+            'nom' => 'Capacités_compétences',
+        ]);
+
+        Categorie::create([
+            'nom' => 'Capacités_connaissances',
+        ]);
+
+        Categorie::create([
+            'nom' => 'Avantages_disciplines',
+        ]);
+
+        Categorie::create([
+            'nom' => 'Avantages_historiques',
+        ]);
+
+        Categorie::create([
+            'nom' => 'Avantages_vertus',
+        ]);
+
+        Categorie::create([
+            'nom' => 'Atouts',
+        ]);
+
+        Categorie::create([
+            'nom' => 'Handicaps',
+        ]);
+
+        Categorie::create([
+            'nom' => 'Humanité / Voie',
+        ]);
+
+        Categorie::create([
+            'nom' => 'Volonté',
+        ]);
+
+        Categorie::create([
+            'nom' => 'Sang',
+        ]);
+
+        Categorie::create([
+            'nom' => 'Santé',
+        ]);
+
+        Categorie::create([
+            'nom' => 'Experience',
+        ]);
     }
 }
