@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonnageController;
+use App\Http\Controllers\DescriptionController;
+use App\Http\Controllers\CaracteristiqueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +20,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/sheet', [PersonnageController::class, 'show']);
+Route::prefix('character')->group(function(){
+
+    Route::get('/{character_id}', [PersonnageController::class, 'show']);
+    
+});
+
+Route::get('/test', [CaracteristiqueController::class, 'get_caracteristique_value']);
+
+/** Route des Descriptions de caracteristiques */
+Route::get('/description/edit', [DescriptionController::class, 'edit']);
+Route::get('/description/{id}', [DescriptionController::class, 'show']);
+Route::put('/description/{id}/edit', [DescriptionController::class, 'update']);

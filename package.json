@@ -25,6 +25,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "buefy": "^0.9.10"
+        "buefy": "^0.9.10",
+        "vue-quill-editor": "^3.0.6"
     }
 }
