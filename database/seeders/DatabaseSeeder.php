@@ -7,6 +7,7 @@ use Database\Seeders\UserSeeder;
 use Database\Seeders\CategorieSeeder;
 use Database\Seeders\PersonnageSeeder;
 use Database\Seeders\CaracteristiqueSeeder;
+use Database\Seeders\Caracteristique_personnageSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,7 +22,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PersonnageSeeder::class,
             CategorieSeeder::class,
-            CaracteristiqueSeeder::class
+            CaracteristiqueSeeder::class,
+            Caracteristique_personnageSeeder::class
         ]);
     }
 }
