@@ -11,21 +11,21 @@
                         <div class="column is-4">
                             <h2 class="has-text-centered mb-4 is-size-5">Physiques</h2>
                             <div class="my-4" v-for="attribut in attributs_physiques" :key="attribut.id">
-                                <h3 class="has-text-centered">{{ attribut.nom }}</h3>
+                                <h3 class="has-text-centered" @click="getDescription(attribut.id)">{{ attribut.nom }}</h3>
                                 <b-rate icon-pack="fas" v-model="attribut.niveau"></b-rate>
                             </div>
                         </div>
                         <div class="column is-4">
                             <h2 class="has-text-centered mb-4 is-size-5">Sociaux</h2>
                             <div class="my-4" v-for="attribut in attributs_sociaux" :key="attribut.id">
-                                <h3 class="has-text-centered">{{ attribut.nom }}</h3>
+                                <h3 class="has-text-centered" @click="getDescription(attribut.id)">{{ attribut.nom }}</h3>
                                 <b-rate icon-pack="fas" v-model="attribut.niveau"></b-rate>
                             </div>
                         </div>
                         <div class="column is-4">
                             <h2 class="has-text-centered mb-4 is-size-5">Mentaux</h2>
                             <div class="my-4" v-for="attribut in attributs_mentaux" :key="attribut.id">
-                                <h3 class="has-text-centered">{{ attribut.nom }}</h3>
+                                <h3 class="has-text-centered" @click="getDescription(attribut.id)">{{ attribut.nom }}</h3>
                                 <b-rate icon-pack="fas" v-model="attribut.niveau"></b-rate>
                             </div>
                         </div>
@@ -56,12 +56,7 @@
         <b-modal v-model="isCardModalActive" full-screen>
             <div class="card">
                 <div class="card-content">
-                    <div class="content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                        <a>#css</a> <a>#responsive</a>
-                        <br>
-                        <small>11:09 PM - 1 Jan 2016</small>
+                    <div class="content" v-html="description_caracteristique">
                     </div>
                     <footer class="modal-card-foot">
                         <b-button
@@ -76,6 +71,8 @@
 
 <script>
 import Navbar from './Navbar.vue';
+import axios from 'axios';
+
     export default {
         data() {
             return {
@@ -99,7 +96,8 @@ import Navbar from './Navbar.vue';
                 attributs_sociaux : [],
                 attributs_mentaux: [],
                 competences_talents : [],
-                isCardModalActive : false
+                isCardModalActive : false,
+                description_caracteristique : ''
             }
         },
         components: {
@@ -110,7 +108,10 @@ import Navbar from './Navbar.vue';
                 alert(category_name)
             },
             getDescription(caracteristique_id) {
-                alert(caracteristique_id)
+                axios.get('/description/' + caracteristique_id).then(response => {
+                    this.description_caracteristique = response.data
+                    this.isCardModalActive = true
+                })
             }
         },
         mounted(){
