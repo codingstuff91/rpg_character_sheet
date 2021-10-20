@@ -5,34 +5,40 @@
             <h2>Personnage : </h2>
             <b-tabs>
                 <b-tab-item label="Attributs / Capacités">
-                <h1 class="has-text-centered is-size-4">Attributs</h1>
+                    <!-- Affichage des attributs -->
+                    <h1 class="has-text-centered is-size-4">Attributs</h1>
                     <div class="columns is-mobile">
                         <div class="column is-4">
                             <h2 class="has-text-centered mb-4 is-size-5">Physiques</h2>
-                            <h3 class="has-text-centered" @click="isCardModalActive = true">Force</h3>
-                            <b-rate icon-pack="fas" v-model="force"></b-rate>
-                            <h3 class="has-text-centered">Dexterité</h3>
-                            <b-rate icon-pack="fas" v-model="dexterite"></b-rate>
-                            <h3 class="has-text-centered">Vigueur</h3>
-                            <b-rate icon-pack="fas" v-model="vigueur"></b-rate>
+                            <div class="my-4" v-for="attribut in attributs_physiques" :key="attribut.id">
+                                <h3 class="has-text-centered">{{ attribut.nom }}</h3>
+                                <b-rate icon-pack="fas" v-model="attribut.niveau"></b-rate>
+                            </div>
                         </div>
                         <div class="column is-4">
                             <h2 class="has-text-centered mb-4 is-size-5">Sociaux</h2>
-                            <h3 class="has-text-centered">Charisme</h3>
-                            <b-rate icon-pack="fas" v-model="charisme"></b-rate>
-                            <h3 class="has-text-centered">Manipulation</h3>
-                            <b-rate icon-pack="fas" v-model="manipulation"></b-rate>
-                            <h3 class="has-text-centered">Apparence</h3>
-                            <b-rate icon-pack="fas" v-model="apparence"></b-rate>
+                            <div class="my-4" v-for="attribut in attributs_sociaux" :key="attribut.id">
+                                <h3 class="has-text-centered">{{ attribut.nom }}</h3>
+                                <b-rate icon-pack="fas" v-model="attribut.niveau"></b-rate>
+                            </div>
                         </div>
                         <div class="column is-4">
                             <h2 class="has-text-centered mb-4 is-size-5">Mentaux</h2>
-                            <h3 class="has-text-centered">Charisme</h3>
-                            <b-rate icon-pack="fas" v-model="charisme"></b-rate>
-                            <h3 class="has-text-centered">Manipulation</h3>
-                            <b-rate icon-pack="fas" v-model="manipulation"></b-rate>
-                            <h3 class="has-text-centered">Apparence</h3>
-                            <b-rate icon-pack="fas" v-model="apparence"></b-rate>
+                            <div class="my-4" v-for="attribut in attributs_mentaux" :key="attribut.id">
+                                <h3 class="has-text-centered">{{ attribut.nom }}</h3>
+                                <b-rate icon-pack="fas" v-model="attribut.niveau"></b-rate>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Affichage des compétences -->
+                    <h1 class="has-text-centered is-size-4">Compétences</h1>
+                    <div class="columns is-mobile">
+                        <div class="column is-4">
+                            <h2 class="has-text-centered mb-4 is-size-5">Talents</h2>
+                            <div v-for="competence in competences_talents" :key="competence.id">
+                                <h3 class="has-text-centered" @click="getDescription(competence.id)">{{ competence.nom }}</h3>
+                                <b-rate icon-pack="fas" v-model="competence.niveau"></b-rate>
+                            </div>
                         </div>
                     </div>
                 </b-tab-item>
@@ -46,6 +52,7 @@
                 </b-tab-item>
             </b-tabs>
         </div>
+        <!-- modal affichage description caracteristique -->
         <b-modal v-model="isCardModalActive" full-screen>
             <div class="card">
                 <div class="card-content">
@@ -72,20 +79,42 @@ import Navbar from './Navbar.vue';
     export default {
         data() {
             return {
-                force: 3,
-                dexterite : 2,
-                vigueur : 4,
-                manipulation : 2,
-                charisme : 3,
-                apparence : 3,
+                attributs_physiques : [
+                    {
+                        id : 1,
+                        nom : 'Force',
+                        niveau : 3
+                    },
+                    {
+                        id : 2,
+                        nom : 'Dexterité',
+                        niveau : 3
+                    },
+                    {
+                        id : 3,
+                        nom : 'Vigueur', 
+                        niveau : 3
+                    }
+                ],
+                attributs_sociaux : [],
+                attributs_mentaux: [],
+                competences_talents : [],
                 isCardModalActive : false
             }
         },
         components: {
             Navbar,
         },
-        mounted() {
-            console.log('Component mounted.')
+        methods: {
+            getCaracteristiquesLevels(category_name){
+                alert(category_name)
+            },
+            getDescription(caracteristique_id) {
+                alert(caracteristique_id)
+            }
+        },
+        mounted(){
+
         }
     }
 </script>
