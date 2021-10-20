@@ -6,14 +6,15 @@
 
 require('./bootstrap');
 
-Vue.component('vtm-v20-character-sheet', require('./components/VTM_V20_character_sheet.vue'));
+import CharacterSheet from './components/vtm_character.vue';
+Vue.component('character-sheet', CharacterSheet);
 
 import EditDescription from './components/EditDescription.vue';
 Vue.component('edit-description', EditDescription);
 
 import VueQuillEditor from 'vue-quill-editor'
-import 'quill/dist/quill.snow.css' // for snow theme
-Vue.use(VueQuillEditor, /* { default global options } */)
+import 'quill/dist/quill.snow.css'
+Vue.use(VueQuillEditor)
 
 import Vue from 'vue'
 import Buefy from 'buefy'
