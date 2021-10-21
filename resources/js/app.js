@@ -6,12 +6,20 @@
 
 require('./bootstrap');
 
-Vue.component('vtm-v20-character-sheet', require('./components/VTM_V20_character_sheet.vue').default);
+import CharacterSheet from './components/vtm_character.vue';
+Vue.component('character-sheet', CharacterSheet);
 
- import Vue from 'vue'
- import Buefy from 'buefy'
- import 'buefy/dist/buefy.css'
- 
+import EditDescription from './components/EditDescription.vue';
+Vue.component('edit-description', EditDescription);
+
+import VueQuillEditor from 'vue-quill-editor'
+import 'quill/dist/quill.snow.css'
+Vue.use(VueQuillEditor)
+
+import Vue from 'vue'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
+
  Vue.use(Buefy)
 
 const app = new Vue({
