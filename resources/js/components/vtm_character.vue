@@ -76,23 +76,7 @@ import axios from 'axios';
     export default {
         data() {
             return {
-                attributs_physiques : [
-                    {
-                        id : 1,
-                        nom : 'Force',
-                        niveau : 3
-                    },
-                    {
-                        id : 2,
-                        nom : 'Dexterité',
-                        niveau : 3
-                    },
-                    {
-                        id : 3,
-                        nom : 'Vigueur', 
-                        niveau : 3
-                    }
-                ],
+                attributs_physiques : [],
                 attributs_sociaux : [],
                 attributs_mentaux: [],
                 competences_talents : [],
@@ -103,9 +87,16 @@ import axios from 'axios';
         components: {
             Navbar,
         },
+        props: {
+            personnage: {
+                type: Object
+            },
+        },
         methods: {
-            getCaracteristiquesLevels(category_name){
-                alert(category_name)
+            getCaracteristiquesLevels(personnage_id, category_name, results){
+                axios.get(`/character/${personnage_id}/${category_name}/levels`).then(response => {
+                    this[results] =  response.data
+                })
             },
             getDescription(caracteristique_id) {
                 axios.get('/description/' + caracteristique_id).then(response => {
@@ -114,8 +105,10 @@ import axios from 'axios';
                 })
             }
         },
-        mounted(){
-
+        async mounted(){
+            await this.getCaracteristiquesLevels(this.personnage.id, 'Attributs_physiques', 'attributs_physiques')
+            await this.getCaracteristiquesLevels(this.personnage.id, 'Attributs_mentaux', 'attributs_mentaux')
+            await this.getCaracteristiquesLevels(this.personnage.id, 'Attributs_sociaux', 'attributs_sociaux')
         }
     }
 </script>
