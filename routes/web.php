@@ -23,6 +23,7 @@ Route::get('/', function () {
 Route::prefix('character')->group(function(){
 
     Route::get('/{character_id}', [PersonnageController::class, 'show']);
+    Route::get('/{character_id}/{characteristics_category_name}/levels', [CaracteristiqueController::class, 'get_levels']);
     
 });
 
