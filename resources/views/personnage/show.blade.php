@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <character-sheet/>
+    <character-sheet personnage="{{ $personnage }}"/>
 @endsection
