@@ -40,6 +40,8 @@
 </template>
 
 <script>
+import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
+
     export default {
         data() {
             return {
@@ -53,13 +55,7 @@
                 type: Object,
             },
         },
-        methods: {
-            getCaracteristiquesLevels(personnage_id, category_name, results){
-                axios.get(`/character/${personnage_id}/${category_name}/levels`).then(response => {
-                    this[results] =  response.data
-                })
-            },
-        },
+        mixins: [CaracteristiquesMixin],
         async mounted(){
             await this.getCaracteristiquesLevels(this.personnage.id, 'Attributs_physiques', 'attributs_physiques')
             await this.getCaracteristiquesLevels(this.personnage.id, 'Attributs_mentaux', 'attributs_mentaux')
