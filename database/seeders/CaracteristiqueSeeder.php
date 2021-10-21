@@ -15,6 +15,9 @@ class CaracteristiqueSeeder extends Seeder
      */
     public function run()
     {
+        /**
+         * ATTRIBUTS - PHYSIQUES
+         */
         Caracteristique::create([
             'categorie_id' => Categorie::where('nom', 'Attributs_physiques')->get()->first()->id,
             'nom' => 'Force',
@@ -32,25 +35,52 @@ class CaracteristiqueSeeder extends Seeder
             'nom' => 'Vigueur',
             'description' => 'La capacité du personnage a encaisser des coups',
         ]);
-        
+
+        /**
+         * ATTRIBUTS - SOCIAUX
+         */
         Caracteristique::create([
-            'categorie_id' => Categorie::where('nom', 'Attributs_mentaux')->get()->first()->id,
+            'categorie_id' => Categorie::where('nom', 'Attributs_sociaux')->get()->first()->id,
             'nom' => 'Charisme',
             'description' => 'Texte à saisir',
         ]);
-        
+    
         Caracteristique::create([
-            'categorie_id' => Categorie::where('nom', 'Attributs_mentaux')->get()->first()->id,
+            'categorie_id' => Categorie::where('nom', 'Attributs_sociaux')->get()->first()->id,
             'nom' => 'Manipulation',
             'description' => 'Texte à saisir',
         ]);
         
         Caracteristique::create([
-            'categorie_id' => Categorie::where('nom', 'Attributs_mentaux')->get()->first()->id,
-            'nom' => 'Apparence',
+            'categorie_id' => Categorie::where('nom', 'Attributs_sociaux')->get()->first()->id,
+            'nom' => 'Sang-froid',
             'description' => 'Texte à saisir',
         ]);
         
+        /**
+         * ATTRIBUTS - MENTAUX
+         */
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Attributs_mentaux')->get()->first()->id,
+            'nom' => 'Intelligence',
+            'description' => 'Texte à saisir',
+        ]);
+        
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Attributs_mentaux')->get()->first()->id,
+            'nom' => 'Astuce',
+            'description' => 'Texte à saisir',
+        ]);
+        
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Attributs_mentaux')->get()->first()->id,
+            'nom' => 'Résolution',
+            'description' => 'Texte à saisir',
+        ]);
+        
+        /**
+         * CAPACITES - TALENTS
+         */
         Caracteristique::create([
             'categorie_id' => Categorie::where('nom', 'Capacités_talents')->get()->first()->id,
             'nom' => 'Athlétisme',
@@ -69,6 +99,9 @@ class CaracteristiqueSeeder extends Seeder
             'description' => 'Texte à saisir',
         ]);
         
+        /**
+         * CAPACITES - COMPETENCES
+         */
         Caracteristique::create([
             'categorie_id' => Categorie::where('nom', 'Capacités_compétences')->get()->first()->id,
             'nom' => 'Animaux',
@@ -80,7 +113,16 @@ class CaracteristiqueSeeder extends Seeder
             'nom' => 'Armes à feu',
             'description' => 'Texte à saisir',
         ]);
-        
+
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Capacités_compétences')->get()->first()->id,
+            'nom' => 'Artisanats',
+            'description' => 'Texte à saisir',
+        ]);
+
+        /**
+         * CAPACITES - CONNAISSANCES
+         */
         Caracteristique::create([
             'categorie_id' => Categorie::where('nom', 'Capacités_connaissances')->get()->first()->id,
             'nom' => 'Droit',
