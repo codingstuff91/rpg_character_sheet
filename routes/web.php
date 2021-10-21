@@ -27,8 +27,6 @@ Route::prefix('character')->group(function(){
     
 });
 
-Route::get('/test', [CaracteristiqueController::class, 'get_caracteristique_value']);
-
 /** Route des Descriptions de caracteristiques */
 Route::get('/description/edit', [DescriptionController::class, 'edit']);
 Route::get('/description/{id}', [DescriptionController::class, 'show']);
