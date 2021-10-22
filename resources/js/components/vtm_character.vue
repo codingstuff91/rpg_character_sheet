@@ -1,12 +1,30 @@
 <template>
     <div class="container is-widescreen">
         <Navbar/>
-        <div class="row justify-content-center">
-            <h2>Personnage : </h2>
-            <b-tabs>
-                <Attributs :personnage="personnage"/>
+        <!-- modal affichage description caracteristique -->
+        <b-modal v-model="isCardModalActive" full-screen>
+            <div class="card">
+                <div class="card-content">
+                    <div class="content" v-html="description_caracteristique">
+                    </div>
+                    <footer class="modal-card-foot">
+                        <b-button
+                            label="Close"
+                            @click="isCardModalActive = false" />
+                    </footer>
+                </div>
+            </div>
+        </b-modal>
 
-                <Capacites :personnage="personnage"/>
+        <div class="row justify-content-center">
+            <div class="content-center">
+                <InfosGenerales :personnage="personnage"/>
+            </div>
+
+            <b-tabs>
+                <Attributs :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
+
+                <Capacites :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
             </b-tabs>
         </div>
 
@@ -18,17 +36,21 @@ import axios from 'axios';
 import Navbar from './Navbar.vue';
 import Attributs from './Attributs.vue';
 import Capacites from './Capacites.vue';
+import InfosGenerales from './InfosGenerales.vue';
 
     export default {
         data() {
             return {
-
+                isCardModalActive : false,
+                description_caracteristique : ''
             }
         },
         components: {
             Navbar,
             Attributs,
-            Capacites
+            Capacites,
+            InfosGenerales
+
         },
         props: {
             personnage: {
@@ -36,6 +58,12 @@ import Capacites from './Capacites.vue';
             },
         },
         methods: {
+            getDescriptionCaracteristique(caracteristique_id) {
+                axios.get('/description/' + caracteristique_id).then(response => {
+                    this.description_caracteristique = response.data
+                    this.isCardModalActive = true
+                })
+            }
 
         },
         async mounted(){
@@ -43,3 +71,10 @@ import Capacites from './Capacites.vue';
         }
     }
 </script>
+
+<style scoped>
+.content-center{
+    display: flex;
+    justify-content: center;
+}
+</style>
