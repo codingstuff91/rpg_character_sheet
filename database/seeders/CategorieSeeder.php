@@ -15,6 +15,10 @@ class CategorieSeeder extends Seeder
     public function run()
     {
         Categorie::create([
+            'nom' => 'Infos_générales',
+        ]);
+
+        Categorie::create([
             'nom' => 'Attributs_physiques',
         ]);
 
@@ -59,7 +63,7 @@ class CategorieSeeder extends Seeder
         ]);
 
         Categorie::create([
-            'nom' => 'Humanité / Voie',
+            'nom' => 'Humanité',
         ]);
 
         Categorie::create([
