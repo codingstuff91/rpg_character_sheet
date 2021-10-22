@@ -25,6 +25,8 @@
                 <Attributs :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
 
                 <Capacites :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
+                
+                <Jauges :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
             </b-tabs>
         </div>
 
@@ -37,6 +39,7 @@ import Navbar from './Navbar.vue';
 import Attributs from './Attributs.vue';
 import Capacites from './Capacites.vue';
 import InfosGenerales from './InfosGenerales.vue';
+import Jauges from './Jauges.vue';
 
     export default {
         data() {
@@ -49,7 +52,8 @@ import InfosGenerales from './InfosGenerales.vue';
             Navbar,
             Attributs,
             Capacites,
-            InfosGenerales
+            InfosGenerales,
+            Jauges
 
         },
         props: {
