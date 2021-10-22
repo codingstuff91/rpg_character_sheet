@@ -16,6 +16,64 @@ class CaracteristiqueSeeder extends Seeder
     public function run()
     {
         /**
+         * INFOS GENERALES
+         */
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Infos_générales')->get()->first()->id,
+            'nom' => 'Nom',
+            'description' => 'Le prenom et nom de votre personnage',
+        ]);
+
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Infos_générales')->get()->first()->id,
+            'nom' => 'Chronique',
+            'description' => 'Le nom de la chronique ou votre personnage évolue',
+        ]);
+
+        
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Infos_générales')->get()->first()->id,
+            'nom' => 'Sire',
+            'description' => 'Le nom de votre créateur, celui qui vous a transformé en vampire',
+        ]);
+        
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Infos_générales')->get()->first()->id,
+            'nom' => 'Concept',
+            'description' => 'Le métier que faisait votre personnage durant sa vie de mortel',
+        ]);
+        
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Infos_générales')->get()->first()->id,
+            'nom' => 'Ambition',
+            'description' => 'Description détaillée à fournir',
+        ]);
+        
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Infos_générales')->get()->first()->id,
+            'nom' => 'Désir',
+            'description' => 'Description détaillée à fournir',
+        ]);
+        
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Infos_générales')->get()->first()->id,
+            'nom' => 'Prédateur',
+            'description' => 'Description détaillée à fournir',
+        ]);
+        
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Infos_générales')->get()->first()->id,
+            'nom' => 'Clan',
+            'description' => 'Description détaillée à fournir',
+        ]);
+        
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Infos_générales')->get()->first()->id,
+            'nom' => 'Génération',
+            'description' => 'Description détaillée à fournir',
+        ]);
+        
+        /**
          * ATTRIBUTS - PHYSIQUES
          */
         Caracteristique::create([
