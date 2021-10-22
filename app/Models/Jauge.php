@@ -15,7 +15,7 @@ class Jauge extends Model
 
     public function caracteristique()
     {
-        return $this->hasOne(Caracteristique::class);
+        return $this->belongsTo(Caracteristique::class);
     }
 
     public function personnage()
