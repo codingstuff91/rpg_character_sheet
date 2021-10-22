@@ -197,5 +197,32 @@ class CaracteristiqueSeeder extends Seeder
             'nom' => 'Finances',
             'description' => 'Texte à saisir',
         ]);
-    }
+
+        /**
+         * JAUGES (Santé, Volonté et Soif)
+         */
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Jauges')->get()->first()->id,
+            'nom' => 'Dégats Contondants',
+            'description' => 'Le nombre de dégats contondants que peut subir le personnage',
+        ]);  
+
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Jauges')->get()->first()->id,
+            'nom' => 'Dégats Aggravés',
+            'description' => 'Le nombre de dégats aggravés que peut subir le personnage',
+        ]);        
+
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Jauges')->get()->first()->id,
+            'nom' => 'Volonté',
+            'description' => 'Le nombre de points de volonté du personnage',
+        ]);        
+
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Jauges')->get()->first()->id,
+            'nom' => 'Soif',
+            'description' => 'La représentation de la soif du personnage',
+        ]);        
+    }   
 }
