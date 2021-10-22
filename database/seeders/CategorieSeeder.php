@@ -67,15 +67,7 @@ class CategorieSeeder extends Seeder
         ]);
 
         Categorie::create([
-            'nom' => 'Volonté',
-        ]);
-
-        Categorie::create([
-            'nom' => 'Sang',
-        ]);
-
-        Categorie::create([
-            'nom' => 'Santé',
+            'nom' => 'Jauges',
         ]);
 
         Categorie::create([
