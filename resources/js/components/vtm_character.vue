@@ -18,7 +18,12 @@
         </b-modal>
 
         <div class="row justify-content-center">
-            <h2>Personnage : </h2>
+            <b-notification
+                type="is-danger"
+                aria-close-label="Close notification"
+                role="alert">
+                <span class="text-center">{{ personnage.nom }}</span>
+            </b-notification>
             <b-tabs>
                 <Attributs :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
 
@@ -54,7 +59,6 @@ import Capacites from './Capacites.vue';
         },
         methods: {
             getDescriptionCaracteristique(caracteristique_id) {
-                console.log('id_caract',caracteristique_id)
                 axios.get('/description/' + caracteristique_id).then(response => {
                     this.description_caracteristique = response.data
                     this.isCardModalActive = true
