@@ -119,6 +119,15 @@ class CaracteristiqueSeeder extends Seeder
          * ATTRIBUTS - MENTAUX
          */
         Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Attributs_sociaux')->get()->first()->id,
+            'nom' => 'Sang-froid',
+            'description' => 'Texte à saisir',
+        ]);
+        
+        /**
+         * ATTRIBUTS - MENTAUX
+         */
+        Caracteristique::create([
             'categorie_id' => Categorie::where('nom', 'Attributs_mentaux')->get()->first()->id,
             'nom' => 'Intelligence',
             'description' => 'Texte à saisir',

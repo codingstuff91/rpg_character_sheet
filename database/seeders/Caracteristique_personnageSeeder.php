@@ -68,14 +68,3 @@ class Caracteristique_personnageSeeder extends Seeder
             "caracteristique_id" => 9,
             "niveau" => 12
         ]);
-
-        // Création de valeurs de niveau de caracteristiques aléatoires
-        for ($i=10; $i < 28 ; $i++) { 
-            DB::table('caracteristique_personnage')->insert([
-                "personnage_id" => 1,
-                "caracteristique_id" => $i,
-                "niveau" => rand(0,5)
-            ]);
-        }
-    }
-}
