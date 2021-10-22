@@ -18,12 +18,10 @@
         </b-modal>
 
         <div class="row justify-content-center">
-            <b-notification
-                type="is-danger"
-                aria-close-label="Close notification"
-                role="alert">
-                <span class="text-center">{{ personnage.nom }}</span>
-            </b-notification>
+            <div class="content-center">
+                <InfosGenerales :personnage="personnage"/>
+            </div>
+
             <b-tabs>
                 <Attributs :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
 
@@ -39,6 +37,7 @@ import axios from 'axios';
 import Navbar from './Navbar.vue';
 import Attributs from './Attributs.vue';
 import Capacites from './Capacites.vue';
+import InfosGenerales from './InfosGenerales.vue';
 
     export default {
         data() {
@@ -50,7 +49,8 @@ import Capacites from './Capacites.vue';
         components: {
             Navbar,
             Attributs,
-            Capacites
+            Capacites,
+            InfosGenerales
         },
         props: {
             personnage: {
@@ -70,3 +70,10 @@ import Capacites from './Capacites.vue';
         }
     }
 </script>
+
+<style scoped>
+.content-center{
+    display: flex;
+    justify-content: center;
+}
+</style>
