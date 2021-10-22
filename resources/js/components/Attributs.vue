@@ -45,6 +45,11 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
             },
         },
         mixins: [CaracteristiquesMixin],
+        methods: {
+            getDescription(attribut_id) {
+                this.$emit('get_description',attribut_id)
+            }
+        },
         async mounted(){
             await this.getCaracteristiquesLevels(this.personnage.id, 'Attributs_physiques', 'attributs_physiques')
             await this.getCaracteristiquesLevels(this.personnage.id, 'Attributs_mentaux', 'attributs_mentaux')
