@@ -15,7 +15,7 @@ class JaugeController extends Controller
         ->where('personnage_id', $request->personnage_id)
         ->where('caracteristiques.nom', $request->nom_caracteristique)
         ->select('score', 'score_max')
-        ->get()->dd();
+        ->get();
 
         return $scores;
     }
