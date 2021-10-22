@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Personnage;
 use Illuminate\Http\Request;
 
 class DisciplineController extends Controller
 {
     public function index(Request $request)
     {
-        $disciplines = Discipline::where('personnage_id', $request->personnage_id)->get();
+        $personnage = Personnage::find($request->personnage_id);
 
-        return $disciplines;
+        return $personnage->disciplines()->get()->groupBy('nom');
     }
 }
