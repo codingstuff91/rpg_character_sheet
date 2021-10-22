@@ -1,7 +1,6 @@
 <template>
     <div class="container is-widescreen">
         <Navbar/>
-
         <!-- modal affichage description caracteristique -->
         <b-modal v-model="isCardModalActive" full-screen>
             <div class="card">
@@ -51,6 +50,7 @@ import InfosGenerales from './InfosGenerales.vue';
             Attributs,
             Capacites,
             InfosGenerales
+
         },
         props: {
             personnage: {
@@ -64,6 +64,7 @@ import InfosGenerales from './InfosGenerales.vue';
                     this.isCardModalActive = true
                 })
             }
+
         },
         async mounted(){
 

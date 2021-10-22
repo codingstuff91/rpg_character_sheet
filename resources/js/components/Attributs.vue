@@ -45,6 +45,7 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
             },
         },
         mixins: [CaracteristiquesMixin],
+
         methods: {
             getDescription(attribut_id) {
                 this.$emit('get_description',attribut_id)
