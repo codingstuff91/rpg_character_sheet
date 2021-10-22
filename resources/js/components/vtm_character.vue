@@ -27,6 +27,8 @@
                 <Capacites :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
                 
                 <Jauges :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
+                
+                <Disciplines :personnage="personnage"/>
             </b-tabs>
         </div>
 
@@ -40,6 +42,7 @@ import Attributs from './Attributs.vue';
 import Capacites from './Capacites.vue';
 import InfosGenerales from './InfosGenerales.vue';
 import Jauges from './Jauges.vue';
+import Disciplines from './Disciplines.vue';
 
     export default {
         data() {
@@ -53,8 +56,8 @@ import Jauges from './Jauges.vue';
             Attributs,
             Capacites,
             InfosGenerales,
-            Jauges
-
+            Jauges,
+            Disciplines
         },
         props: {
             personnage: {
@@ -68,9 +71,6 @@ import Jauges from './Jauges.vue';
                     this.isCardModalActive = true
                 })
             }
-
-        },
-        async mounted(){
 
         }
     }
