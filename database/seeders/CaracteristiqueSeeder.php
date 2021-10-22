@@ -30,7 +30,6 @@ class CaracteristiqueSeeder extends Seeder
             'description' => 'Le nom de la chronique ou votre personnage évolue',
         ]);
 
-        
         Caracteristique::create([
             'categorie_id' => Categorie::where('nom', 'Infos_générales')->get()->first()->id,
             'nom' => 'Sire',
@@ -109,15 +108,6 @@ class CaracteristiqueSeeder extends Seeder
             'description' => 'Texte à saisir',
         ]);
         
-        Caracteristique::create([
-            'categorie_id' => Categorie::where('nom', 'Attributs_sociaux')->get()->first()->id,
-            'nom' => 'Sang-froid',
-            'description' => 'Texte à saisir',
-        ]);
-        
-        /**
-         * ATTRIBUTS - MENTAUX
-         */
         Caracteristique::create([
             'categorie_id' => Categorie::where('nom', 'Attributs_sociaux')->get()->first()->id,
             'nom' => 'Sang-froid',
