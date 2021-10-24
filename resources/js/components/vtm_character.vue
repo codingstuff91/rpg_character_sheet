@@ -29,6 +29,8 @@
                 <Jauges :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
                 
                 <Disciplines :personnage="personnage"/>
+
+                <AvantagesHandicaps :personnage="personnage"/>
             </b-tabs>
         </div>
 
@@ -43,6 +45,7 @@ import Capacites from './Capacites.vue';
 import InfosGenerales from './InfosGenerales.vue';
 import Jauges from './Jauges.vue';
 import Disciplines from './Disciplines.vue';
+import AvantagesHandicaps from './AvantagesHandicaps.vue';
 
     export default {
         data() {
@@ -57,7 +60,8 @@ import Disciplines from './Disciplines.vue';
             Capacites,
             InfosGenerales,
             Jauges,
-            Disciplines
+            Disciplines,
+            AvantagesHandicaps
         },
         props: {
             personnage: {
