@@ -6,6 +6,7 @@ use App\Http\Controllers\DisciplineController;
 use App\Http\Controllers\PersonnageController;
 use App\Http\Controllers\DescriptionController;
 use App\Http\Controllers\CaracteristiqueController;
+use App\Http\Controllers\AvantageHandicapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::prefix('character')->group(function(){
     Route::get('/{character_id}/{characteristics_category_name}/levels', [CaracteristiqueController::class, 'get_levels']);
     Route::get('/{personnage_id}/{nom_caracteristique}/jauge_level', [JaugeController::class, 'get_jauge_value']);
     Route::get('/{personnage_id}/disciplines', [DisciplineController::class, 'index']);
+    Route::get('/{personnage_id}/avantages_handicaps', [AvantageHandicapController::class, 'index']);
 });
 
 /** Route des Descriptions de caracteristiques */
