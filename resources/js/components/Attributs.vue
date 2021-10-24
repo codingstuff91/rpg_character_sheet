@@ -5,23 +5,41 @@
         <div class="columns is-mobile">
             <div class="column is-4">
                 <h2 class="has-text-centered mb-4 is-size-5">Physiques</h2>
-                <div class="my-4" v-for="attribut in attributs_physiques" :key="attribut.id">
+                <div :class="style" v-for="attribut in attributs_physiques" :key="attribut.id">
                     <h3 class="has-text-centered" @click="getDescription(attribut.id)">{{ attribut.nom }}</h3>
-                    <b-rate icon-pack="fas" v-model="attribut.niveau"></b-rate>
+                    <b-rate 
+                        icon-pack="fas" 
+                        :icon="icon"
+                        spaced
+                        :size="size"
+                        v-model="attribut.niveau">
+                    </b-rate>
                 </div>
             </div>
             <div class="column is-4">
                 <h2 class="has-text-centered mb-4 is-size-5">Sociaux</h2>
                 <div class="my-4" v-for="attribut in attributs_sociaux" :key="attribut.id">
                     <h3 class="has-text-centered" @click="getDescription(attribut.id)">{{ attribut.nom }}</h3>
-                    <b-rate icon-pack="fas" v-model="attribut.niveau"></b-rate>
+                    <b-rate 
+                        icon-pack="fas" 
+                        :icon="icon"
+                        spaced
+                        :size="size"
+                        v-model="attribut.niveau">
+                    </b-rate>
                 </div>
             </div>
             <div class="column is-4">
                 <h2 class="has-text-centered mb-4 is-size-5">Mentaux</h2>
                 <div class="my-4" v-for="attribut in attributs_mentaux" :key="attribut.id">
                     <h3 class="has-text-centered" @click="getDescription(attribut.id)">{{ attribut.nom }}</h3>
-                    <b-rate icon-pack="fas" v-model="attribut.niveau"></b-rate>
+                    <b-rate 
+                        icon-pack="fas" 
+                        :icon="icon"
+                        spaced
+                        :size="size"        
+                        v-model="attribut.niveau">
+                    </b-rate>
                 </div>
             </div>
         </div>
@@ -37,6 +55,9 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
                 attributs_physiques : [],
                 attributs_sociaux : [],
                 attributs_mentaux: [],
+                icon : 'tint',
+                size : 'is-medium',
+                style : 'my-4 is-flex is-flex-direction-column is-justify-content-center is-align-items-center'
             }
         },
         props: {
@@ -58,3 +79,7 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
         }
     }
 </script>
+<style lang="scss">
+    $rate-color : "red";
+    $rate-color-active : "green";
+</style>
