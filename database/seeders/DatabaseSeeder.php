@@ -9,6 +9,7 @@ use Database\Seeders\CategorieSeeder;
 use Database\Seeders\DisciplineSeeder;
 use Database\Seeders\PersonnageSeeder;
 use Database\Seeders\CaracteristiqueSeeder;
+use Database\Seeders\AvantageHandicapSeeder;
 use Database\Seeders\DisciplinePersonnageSeeder;
 use Database\Seeders\Caracteristique_personnageSeeder;
 
@@ -29,7 +30,8 @@ class DatabaseSeeder extends Seeder
             Caracteristique_personnageSeeder::class,
             JaugeSeeder::class,
             DisciplineSeeder::class,
-            DisciplinePersonnageSeeder::class
+            DisciplinePersonnageSeeder::class,
+            AvantageHandicapSeeder::class
         ]);
     }
 }
