@@ -16,11 +16,21 @@ import VueQuillEditor from 'vue-quill-editor'
 import 'quill/dist/quill.snow.css'
 Vue.use(VueQuillEditor)
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTint, faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+library.add(faTint, faStar);
+Vue.component('vue-fontawesome', FontAwesomeIcon);
+
 import Vue from 'vue'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 
- Vue.use(Buefy)
+Vue.use(Buefy, {
+  defaultIconComponent: 'vue-fontawesome',
+  defaultIconPack: 'fas',
+});
 
 const app = new Vue({
     el: '#app',
