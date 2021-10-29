@@ -199,7 +199,7 @@ class CaracteristiqueSeeder extends Seeder
         ]);
 
         /**
-         * JAUGES (Santé, Volonté et Soif)
+         * JAUGES (Santé, Volonté, Soif et Humanité)
          */
         Caracteristique::create([
             'categorie_id' => Categorie::where('nom', 'Jauges')->get()->first()->id,
@@ -223,6 +223,12 @@ class CaracteristiqueSeeder extends Seeder
             'categorie_id' => Categorie::where('nom', 'Jauges')->get()->first()->id,
             'nom' => 'Soif',
             'description' => 'La représentation de la soif du personnage',
+        ]);        
+
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Humanité')->get()->first()->id,
+            'nom' => 'Humanité',
+            'description' => 'Description à saisir',
         ]);        
     }   
 }
