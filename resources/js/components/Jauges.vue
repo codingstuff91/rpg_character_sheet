@@ -42,6 +42,12 @@
             </b-rate>
         </div>
         <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center mt-4">
+            <b-button size="is-small"
+                type="is-danger"
+                icon-left="question-circle"
+                rounded
+                @click="getDescription(humanite[0].id)">
+            </b-button>
             <h2 class="has-text-centered mb-4 is-size-5">Humanité</h2>
             <b-rate icon-pack="fas"
                 :size="size"
@@ -86,6 +92,9 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
                     this[data] = response.data[0].score
                     this[data_max] = response.data[0].score_max
                 })
+            },
+            getDescription(caracteristique_id){
+                this.$emit('get_description',caracteristique_id)
             }
         },
         async mounted() {
