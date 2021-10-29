@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Caracteristique;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -77,5 +78,12 @@ class Caracteristique_personnageSeeder extends Seeder
                 "niveau" => rand(0,5)
             ]);
         }
+
+        // Valeur aléatoire de score d'humanité
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Humanité')->get()->first()->id,
+            "niveau" => 8
+        ]);
     }
 }
