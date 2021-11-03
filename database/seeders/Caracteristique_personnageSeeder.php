@@ -14,53 +14,46 @@ class Caracteristique_personnageSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        // Création de valeurs de caracteristique pour les infos générales
+    {        
+        /**
+         * VALEURS D'ATTRIBUTS
+         */
         DB::table('caracteristique_personnage')->insert([
             "personnage_id" => 1,
-            "caracteristique_id" => 1,
-            "niveau" => "Nosfé"
+            "caracteristique_id" => Caracteristique::where('nom', 'Force')->get()->first()->id,
+            "niveau" => 3
         ]);
 
         DB::table('caracteristique_personnage')->insert([
             "personnage_id" => 1,
-            "caracteristique_id" => 2,
-            "niveau" => "Angers By night"
+            "caracteristique_id" => Caracteristique::where('nom', 'Dexterité')->get()->first()->id,
+            "niveau" => 4
         ]);
 
         DB::table('caracteristique_personnage')->insert([
             "personnage_id" => 1,
-            "caracteristique_id" => 3,
-            "niveau" => "Inconnu"
+            "caracteristique_id" => Caracteristique::where('nom', 'Vigueur')->get()->first()->id,
+            "niveau" => 5
         ]);
 
         DB::table('caracteristique_personnage')->insert([
             "personnage_id" => 1,
-            "caracteristique_id" => 4,
-            "niveau" => "Etudiant"
+            "caracteristique_id" => Caracteristique::where('nom', 'Charisme')->get()->first()->id,
+            "niveau" => 3
         ]);
 
         DB::table('caracteristique_personnage')->insert([
             "personnage_id" => 1,
-            "caracteristique_id" => 8,
-            "niveau" => "Assamite"
+            "caracteristique_id" => Caracteristique::where('nom', 'Manipulation')->get()->first()->id,
+            "niveau" => 4
         ]);
 
         DB::table('caracteristique_personnage')->insert([
             "personnage_id" => 1,
-            "caracteristique_id" => 9,
-            "niveau" => 12
+            "caracteristique_id" => Caracteristique::where('nom', 'Sang-froid')->get()->first()->id,
+            "niveau" => 5
         ]);
-
-        // Création de valeurs de niveau de caracteristiques aléatoires
-        for ($i=10; $i < 28 ; $i++) { 
-            DB::table('caracteristique_personnage')->insert([
-                "personnage_id" => 1,
-                "caracteristique_id" => $i,
-                "niveau" => rand(0,5)
-            ]);
-        }
-
+        
         // Valeur aléatoire de score d'humanité
         DB::table('caracteristique_personnage')->insert([
             "personnage_id" => 1,
