@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\JaugeSeeder;
+use Database\Seeders\CapaciteSeeder;
 use Database\Seeders\CategorieSeeder;
 use Database\Seeders\InfosSangSeeder;
 use Database\Seeders\DisciplineSeeder;
@@ -28,6 +29,7 @@ class DatabaseSeeder extends Seeder
             PersonnageSeeder::class,
             CategorieSeeder::class,
             CaracteristiqueSeeder::class,
+            CapaciteSeeder::class,
             InfosSangSeeder::class,
             InfosGeneralesSeeder::class,
             Caracteristique_personnageSeeder::class,
