@@ -4,40 +4,31 @@
             <b-button
                 :label="labelbouton"
                 type="is-danger"
+                size="is-small"
             />
         </template>
         <div class="notification">
             <div class="content">
                 <div class="columns is-mobile">
-                    <div class="column is-4">
+                    <div class="column is-half">
                         <h2 class="mb-4 is-size-6">{{ Infos_générales[0].nom }}</h2>
                         <p class="mb-4 is-size-6">{{ Infos_générales[0].niveau }}</p>
 
-                        <h2 class="mb-4 is-size-6">{{ Infos_générales[1].nom }}</h2>
-                        <p class="mb-4 is-size-6">{{ Infos_générales[1].niveau }}</p>
+                        <h2 class="mb-4 is-size-6">{{ Infos_générales[3].nom }}</h2>
+                        <p class="mb-4 is-size-6">{{ Infos_générales[3].niveau }}</p>
 
                         <h2 class="mb-4 is-size-6">{{ Infos_générales[2].nom }}</h2>
                         <p class="mb-4 is-size-6">{{ Infos_générales[2].niveau }}</p>
                     </div>
-                    <div class="column is-4">
-                        <h2 class="mb-4 is-size-6">{{ Infos_générales[3].nom }}</h2>
-                        <p class="mb-4 is-size-6">{{ Infos_générales[3].niveau }}</p>
+                    <div class="column is-half">
+                        <h2 class="mb-4 is-size-6">{{ Infos_générales[1].nom }}</h2>
+                        <p class="mb-4 is-size-6">{{ Infos_générales[1].niveau }}</p>
 
                         <h2 class="mb-4 is-size-6">{{ Infos_générales[4].nom }}</h2>
                         <p class="mb-4 is-size-6">{{ Infos_générales[4].niveau }}</p>
 
                         <h2 class="mb-4 is-size-6">{{ Infos_générales[5].nom }}</h2>
                         <p class="mb-4 is-size-6">{{ Infos_générales[5].niveau }}</p>
-                    </div>
-                    <div class="column is-4">
-                        <h2 class="mb-4 is-size-6">{{ Infos_générales[6].nom }}</h2>
-                        <p class="mb-4 is-size-6">{{ Infos_générales[6].niveau }}</p>
-
-                        <h2 class="mb-4 is-size-6">{{ Infos_générales[7].nom }}</h2>
-                        <p class="mb-4 is-size-6">{{ Infos_générales[7].niveau }}</p>
-
-                        <h2 class="mb-4 is-size-6">{{ Infos_générales[8].nom }}</h2>
-                        <p class="mb-4 is-size-6">{{ Infos_générales[8].niveau }}</p>
                     </div>
                 </div>
             </div>

@@ -44,24 +44,6 @@ class CaracteristiqueSeeder extends Seeder
         
         Caracteristique::create([
             'categorie_id' => Categorie::where('nom', 'Infos_générales')->get()->first()->id,
-            'nom' => 'Ambition',
-            'description' => 'Description détaillée à fournir',
-        ]);
-        
-        Caracteristique::create([
-            'categorie_id' => Categorie::where('nom', 'Infos_générales')->get()->first()->id,
-            'nom' => 'Désir',
-            'description' => 'Description détaillée à fournir',
-        ]);
-        
-        Caracteristique::create([
-            'categorie_id' => Categorie::where('nom', 'Infos_générales')->get()->first()->id,
-            'nom' => 'Prédateur',
-            'description' => 'Description détaillée à fournir',
-        ]);
-        
-        Caracteristique::create([
-            'categorie_id' => Categorie::where('nom', 'Infos_générales')->get()->first()->id,
             'nom' => 'Clan',
             'description' => 'Description détaillée à fournir',
         ]);

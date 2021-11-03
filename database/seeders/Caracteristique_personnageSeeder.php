@@ -42,24 +42,6 @@ class Caracteristique_personnageSeeder extends Seeder
 
         DB::table('caracteristique_personnage')->insert([
             "personnage_id" => 1,
-            "caracteristique_id" => 5,
-            "niveau" => "Trouver son sire et le tuer"
-        ]);
-
-        DB::table('caracteristique_personnage')->insert([
-            "personnage_id" => 1,
-            "caracteristique_id" => 6,
-            "niveau" => "Trouver son sire et le tuer"
-        ]);
-
-        DB::table('caracteristique_personnage')->insert([
-            "personnage_id" => 1,
-            "caracteristique_id" => 7,
-            "niveau" => "Chasseur"
-        ]);
-
-        DB::table('caracteristique_personnage')->insert([
-            "personnage_id" => 1,
             "caracteristique_id" => 8,
             "niveau" => "Assamite"
         ]);
