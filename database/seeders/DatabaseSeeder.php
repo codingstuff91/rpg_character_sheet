@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\JaugeSeeder;
 use Database\Seeders\CategorieSeeder;
+use Database\Seeders\InfosSangSeeder;
 use Database\Seeders\DisciplineSeeder;
 use Database\Seeders\PersonnageSeeder;
 use Database\Seeders\CaracteristiqueSeeder;
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PersonnageSeeder::class,
             CategorieSeeder::class,
+            InfosSangSeeder::class,
             CaracteristiqueSeeder::class,
             Caracteristique_personnageSeeder::class,
             JaugeSeeder::class,

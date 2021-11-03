@@ -35,12 +35,5 @@ class JaugeSeeder extends Seeder
             "score" => 7,
             "score_max" => 7
         ]);
-
-        DB::table('jauges')->insert([
-            "personnage_id" => 1,
-            "caracteristique_id" => Caracteristique::where('nom', 'Soif')->get()->first()->id,
-            "score" => 0,
-            "score_max" => 5
-        ]);
     }
 }

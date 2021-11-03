@@ -73,5 +73,10 @@ class CategorieSeeder extends Seeder
         Categorie::create([
             'nom' => 'Experience',
         ]);
+
+        Categorie::create([
+            'nom' => 'Sang',
+        ]);
+
     }
 }
