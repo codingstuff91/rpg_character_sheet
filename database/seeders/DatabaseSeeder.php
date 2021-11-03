@@ -27,14 +27,14 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PersonnageSeeder::class,
             CategorieSeeder::class,
-            InfosSangSeeder::class,
             CaracteristiqueSeeder::class,
+            InfosSangSeeder::class,
             InfosGeneralesSeeder::class,
             Caracteristique_personnageSeeder::class,
             JaugeSeeder::class,
             DisciplineSeeder::class,
             DisciplinePersonnageSeeder::class,
-            AvantageHandicapSeeder::class,
+            AvantageHandicapSeeder::class
         ]);
     }
 }
