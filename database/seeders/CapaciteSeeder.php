@@ -81,6 +81,54 @@ class CapaciteSeeder extends Seeder
             'description' => 'Texte à saisir',
         ]);
 
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Capacités_compétences')->get()->first()->id,
+            'nom' => 'Commandement',
+            'description' => 'Texte à saisir',
+        ]);
+
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Capacités_compétences')->get()->first()->id,
+            'nom' => 'Empathie',
+            'description' => 'Texte à saisir',
+        ]);
+
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Capacités_compétences')->get()->first()->id,
+            'nom' => 'Etiquette',
+            'description' => 'Texte à saisir',
+        ]);
+
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Capacités_compétences')->get()->first()->id,
+            'nom' => 'Experience de la rue',
+            'description' => 'Texte à saisir',
+        ]);
+
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Capacités_compétences')->get()->first()->id,
+            'nom' => 'Intimidation',
+            'description' => 'Texte à saisir',
+        ]);
+
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Capacités_compétences')->get()->first()->id,
+            'nom' => 'Performance',
+            'description' => 'Texte à saisir',
+        ]);
+
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Capacités_compétences')->get()->first()->id,
+            'nom' => 'Persuasion',
+            'description' => 'Texte à saisir',
+        ]);
+
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Capacités_compétences')->get()->first()->id,
+            'nom' => 'Subterfuge',
+            'description' => 'Texte à saisir',
+        ]);
+
         /**
          * CAPACITES - MENTALES
          */
