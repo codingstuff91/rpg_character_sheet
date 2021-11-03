@@ -14,52 +14,183 @@ class Caracteristique_personnageSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        // Création de valeurs de caracteristique pour les infos générales
+    {        
+        /**
+         * VALEURS D'ATTRIBUTS PHYSIQUES
+         */
         DB::table('caracteristique_personnage')->insert([
             "personnage_id" => 1,
-            "caracteristique_id" => 1,
-            "niveau" => "Nosfé"
+            "caracteristique_id" => Caracteristique::where('nom', 'Force')->get()->first()->id,
+            "niveau" => 3
         ]);
 
         DB::table('caracteristique_personnage')->insert([
             "personnage_id" => 1,
-            "caracteristique_id" => 2,
-            "niveau" => "Angers By night"
+            "caracteristique_id" => Caracteristique::where('nom', 'Dexterité')->get()->first()->id,
+            "niveau" => 4
         ]);
 
         DB::table('caracteristique_personnage')->insert([
             "personnage_id" => 1,
-            "caracteristique_id" => 3,
-            "niveau" => "Inconnu"
+            "caracteristique_id" => Caracteristique::where('nom', 'Vigueur')->get()->first()->id,
+            "niveau" => 5
+        ]);
+
+        /**
+         * ATTRIBUTS SOCIAUX
+         */
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Charisme')->get()->first()->id,
+            "niveau" => 3
         ]);
 
         DB::table('caracteristique_personnage')->insert([
             "personnage_id" => 1,
-            "caracteristique_id" => 4,
-            "niveau" => "Etudiant"
+            "caracteristique_id" => Caracteristique::where('nom', 'Manipulation')->get()->first()->id,
+            "niveau" => 4
         ]);
 
         DB::table('caracteristique_personnage')->insert([
             "personnage_id" => 1,
-            "caracteristique_id" => 8,
-            "niveau" => "Assamite"
+            "caracteristique_id" => Caracteristique::where('nom', 'Sang-froid')->get()->first()->id,
+            "niveau" => 5
+        ]);
+        
+        /**
+         * ATTRIBUTS MENTAUX
+         */
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Intelligence')->get()->first()->id,
+            "niveau" => 2
         ]);
 
         DB::table('caracteristique_personnage')->insert([
             "personnage_id" => 1,
-            "caracteristique_id" => 9,
-            "niveau" => 12
+            "caracteristique_id" => Caracteristique::where('nom', 'Astuce')->get()->first()->id,
+            "niveau" => 3
         ]);
 
-        // Création de valeurs de niveau de caracteristiques aléatoires
-        for ($i=10; $i < 28 ; $i++) { 
-            DB::table('caracteristique_personnage')->insert([
-                "personnage_id" => 1,
-                "caracteristique_id" => $i,
-                "niveau" => rand(0,5)
-            ]);
-        }
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Résolution')->get()->first()->id,
+            "niveau" => 4
+        ]);
+        
+        /**
+         * CAPACITES PHYSIQUES
+         */
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Armes à feu')->get()->first()->id,
+            "niveau" => 0
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Artisanat')->get()->first()->id,
+            "niveau" => 0
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Athlétisme')->get()->first()->id,
+            "niveau" => 0
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Bagarre')->get()->first()->id,
+            "niveau" => 0
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Conduite')->get()->first()->id,
+            "niveau" => 0
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Furtivité')->get()->first()->id,
+            "niveau" => 3
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Larcin')->get()->first()->id,
+            "niveau" => 2
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Mélée')->get()->first()->id,
+            "niveau" => 2
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Survie')->get()->first()->id,
+            "niveau" => 1
+        ]);
+        
+        /**
+         * CAPACITES SOCIALES
+         */
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Animaux')->get()->first()->id,
+            "niveau" => 0
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Commandement')->get()->first()->id,
+            "niveau" => 0
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Empathie')->get()->first()->id,
+            "niveau" => 0
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Etiquette')->get()->first()->id,
+            "niveau" => 0
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Experience de la rue')->get()->first()->id,
+            "niveau" => 2
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Intimidation')->get()->first()->id,
+            "niveau" => 2
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Performance')->get()->first()->id,
+            "niveau" => 0
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Persuasion')->get()->first()->id,
+            "niveau" => 2
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Subterfuge')->get()->first()->id,
+            "niveau" => 4
+        ]);
 
         // Valeur aléatoire de score d'humanité
         DB::table('caracteristique_personnage')->insert([
