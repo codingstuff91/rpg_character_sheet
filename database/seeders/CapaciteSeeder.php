@@ -134,19 +134,55 @@ class CapaciteSeeder extends Seeder
          */
         Caracteristique::create([
             'categorie_id' => Categorie::where('nom', 'Capacités_connaissances')->get()->first()->id,
-            'nom' => 'Droit',
-            'description' => 'Texte à saisir',
-        ]);
-        
-        Caracteristique::create([
-            'categorie_id' => Categorie::where('nom', 'Capacités_connaissances')->get()->first()->id,
             'nom' => 'Erudition',
             'description' => 'Texte à saisir',
         ]);
-        
+       
         Caracteristique::create([
             'categorie_id' => Categorie::where('nom', 'Capacités_connaissances')->get()->first()->id,
             'nom' => 'Finances',
+            'description' => 'Texte à saisir',
+        ]);
+       
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Capacités_connaissances')->get()->first()->id,
+            'nom' => 'Investigation',
+            'description' => 'Texte à saisir',
+        ]);
+       
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Capacités_connaissances')->get()->first()->id,
+            'nom' => 'Médecine',
+            'description' => 'Texte à saisir',
+        ]);
+       
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Capacités_connaissances')->get()->first()->id,
+            'nom' => 'Occultisme',
+            'description' => 'Texte à saisir',
+        ]);
+       
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Capacités_connaissances')->get()->first()->id,
+            'nom' => 'Politique',
+            'description' => 'Texte à saisir',
+        ]);
+       
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Capacités_connaissances')->get()->first()->id,
+            'nom' => 'Sciences',
+            'description' => 'Texte à saisir',
+        ]);
+       
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Capacités_connaissances')->get()->first()->id,
+            'nom' => 'Technologie',
+            'description' => 'Texte à saisir',
+        ]);
+       
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Capacités_connaissances')->get()->first()->id,
+            'nom' => 'Vigilance',
             'description' => 'Texte à saisir',
         ]);
     }
