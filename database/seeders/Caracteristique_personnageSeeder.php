@@ -93,6 +93,13 @@ class Caracteristique_personnageSeeder extends Seeder
             "niveau" => 2
         ]);
 
+        // Valeur aléatoire de puissance de sang
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Puissance du sang')->get()->first()->id,
+            "niveau" => 1
+        ]);
+
         // Valeur aléatoire de coup de sang
         DB::table('caracteristique_personnage')->insert([
             "personnage_id" => 1,

@@ -20,6 +20,12 @@ class InfosSangSeeder extends Seeder
             'nom' => 'Soif',
             'description' => 'La représentation de la soif du personnage',
         ]); 
+
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Sang')->get()->first()->id,
+            'nom' => 'Puissance du sang',
+            'description' => 'La représentation de la soif du personnage',
+        ]); 
         
         Caracteristique::create([
             'categorie_id' => Categorie::where('nom', 'Sang')->get()->first()->id,
