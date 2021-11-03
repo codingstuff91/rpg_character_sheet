@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Caracteristique;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class InfosGeneralesSeeder extends Seeder
 {
