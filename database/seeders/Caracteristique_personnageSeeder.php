@@ -16,7 +16,7 @@ class Caracteristique_personnageSeeder extends Seeder
     public function run()
     {        
         /**
-         * VALEURS D'ATTRIBUTS
+         * VALEURS D'ATTRIBUTS PHYSIQUES
          */
         DB::table('caracteristique_personnage')->insert([
             "personnage_id" => 1,
@@ -36,6 +36,9 @@ class Caracteristique_personnageSeeder extends Seeder
             "niveau" => 5
         ]);
 
+        /**
+         * ATTRIBUTS SOCIAUX
+         */
         DB::table('caracteristique_personnage')->insert([
             "personnage_id" => 1,
             "caracteristique_id" => Caracteristique::where('nom', 'Charisme')->get()->first()->id,
@@ -52,6 +55,27 @@ class Caracteristique_personnageSeeder extends Seeder
             "personnage_id" => 1,
             "caracteristique_id" => Caracteristique::where('nom', 'Sang-froid')->get()->first()->id,
             "niveau" => 5
+        ]);
+        
+        /**
+         * ATTRIBUTS MENTAUX
+         */
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Intelligence')->get()->first()->id,
+            "niveau" => 2
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Astuce')->get()->first()->id,
+            "niveau" => 3
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Résolution')->get()->first()->id,
+            "niveau" => 4
         ]);
         
         // Valeur aléatoire de score d'humanité
