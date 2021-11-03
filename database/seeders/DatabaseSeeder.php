@@ -27,11 +27,12 @@ class DatabaseSeeder extends Seeder
             PersonnageSeeder::class,
             CategorieSeeder::class,
             CaracteristiqueSeeder::class,
+            InfosGeneralesSeeder::class,
             Caracteristique_personnageSeeder::class,
             JaugeSeeder::class,
             DisciplineSeeder::class,
             DisciplinePersonnageSeeder::class,
-            AvantageHandicapSeeder::class
+            AvantageHandicapSeeder::class,
         ]);
     }
 }
