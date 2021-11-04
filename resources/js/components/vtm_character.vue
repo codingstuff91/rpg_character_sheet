@@ -35,6 +35,8 @@
                 <Disciplines :personnage="personnage"/>
 
                 <AvantagesHandicaps :personnage="personnage"/>
+                
+                <ContactsAllies :personnage="personnage"/>
             </b-tabs>
         </div>
 
@@ -52,6 +54,7 @@ import AvantagesHandicaps from './AvantagesHandicaps.vue';
 import Sang from './Sang.vue';
 import Sante from './Sante.vue';
 import Volonte from './Volonte.vue';
+import ContactsAllies from './ContactsAllies.vue';
 
     export default {
         data() {
@@ -69,7 +72,8 @@ import Volonte from './Volonte.vue';
             AvantagesHandicaps,
             Sang,
             Sante,
-            Volonte
+            Volonte,
+            ContactsAllies
         },
         props: {
             personnage: {
