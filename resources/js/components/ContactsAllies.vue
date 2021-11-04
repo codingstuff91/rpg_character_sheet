@@ -51,6 +51,45 @@
                 </div>
             </div>
         </b-modal>
+        <!-- modal affichage explication des contacts -->
+        <b-modal v-model="isModalContactsActive" full-screen>
+            <div class="card">
+                <div class="card-content">
+                    <div class="content">
+                        <!-- Affichage explications générales -->
+                        <b-notification
+                            type="is-info is-light"
+                            aria-close-label="Close notification"
+                            has-icon
+                            icon="question-circle"
+                            role="alert">
+                            <p class="my-2">Les contacts sont des humains que connait votre personnage dans beaucoup de milieux différents.</p>
+                            <p class="my-2">Les contacts peuvent fournir des informations dans leurs domains d'expertise, et peuvent vouloir échanger des faveurs de toute sorte.</p>
+                            <p class="my-2">Un contact est une personne en bonne position pour obtenir des informations. Il peut etre un policier opérateur radio pour les patrouilles ou un membre de la mairie</p>
+                        </b-notification>
+                        <!-- Affichage explication critere efficacité -->
+                        <b-notification
+                            type="is-info is-light"
+                            aria-close-label="Close notification"
+                            has-icon
+                            icon="question-circle"
+                            role="alert">
+                            <h2 class="my-2">Efficacité</h2>
+                            <p class="my-2">Résume le niveau du contact. Ce critère va de 1 à 3</p>
+                            <p class="my-2">1 : Il peut obtenir ou faire quelque chose de d'ordinaire, de courant ou bon marché. Exemples : dealer de cannabis, vendeur de voitures</p>
+                            <p class="my-2">2 : Il peut obtenir quelque chose d'utile. Exemples : vendeur d'armes ou un vétérinaire</p>
+                            <p class="my-2">3 : Il peut faire quelque chose de difficile ou obtenir quelque de cher. Exemples : expert en systeme de sécurité, lieutenant de police</p>
+                        </b-notification>
+                        <!-- Affichage explication critere efficacité -->
+                    </div>
+                    <footer class="modal-card-foot">
+                        <b-button
+                            label="Fermer"
+                            @click="isModalContactsActive = false" />
+                    </footer>
+                </div>
+            </div>
+        </b-modal>
         <!-- Affichage des alliés -->
         <b-collapse
             class="panel"
@@ -100,14 +139,37 @@
             v-model="ContactsTabOpen">
             <template #trigger>
                 <div
-                    class="panel-heading"
+                    class="panel-heading is-flex is-justify-content-space-between is-align-items-center"
                     role="button"
                     aria-controls="contentIdForA11y2">
                     <strong>Contacts</strong>
+                    <b-rate 
+                        icon-pack="fas" 
+                        :max="count_contacts"
+                        icon="skull-crossbones"
+                        spaced
+                        :size="size"
+                        v-model="count_contacts">
+                    </b-rate>
                 </div>
             </template>
-            <div class="panel-block">
-
+            <div class="panel-block is-flex is-flex-direction-column is-justify-content-center">
+                <b-button 
+                    class="my-4" 
+                    type="is-info" 
+                    @click="isModalContactsActive = !isModalContactsActive">
+                    Aide
+                </b-button>
+                <b-message v-for="contact in contacts" :key="contact.nom">
+                    <template #header>
+                        <h3 class="is-size-6">{{ contact.nom }}</h3>
+                    </template>
+                    <div class="">
+                        <h2>Métier : {{ contact.métier }}</h2>
+                        <h2>Efficacité : {{ contact.efficacité }}</h2>
+                        <h2 class="my-2" v-html="contact.details"></h2>
+                    </div>            
+                </b-message>
             </div>
         </b-collapse>
 
@@ -128,10 +190,18 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
                 count_contacts : 3,
                 size : 'is-small',
                 isModalAlliesActive : false,
+                isModalContactsActive : false,
                 allies : [{
                     'nom' : 'John',
+                    'métier' : 'Agent de police',
                     'efficacité' : 2,
                     'fiabilité' : 'Forte',
+                    'details' : "<p>Un descriptif plus détaillé de la relation avec cet allié</p><p>Ne pas oublier de mettre plusieurs explications</p>"
+                }],
+                contacts : [{
+                    'nom' : 'Smoky',
+                    'métier' : 'Lieutenant de police',
+                    'efficacité' : 3,
                     'details' : "<p>Un descriptif plus détaillé de la relation avec cet allié</p><p>Ne pas oublier de mettre plusieurs explications</p>"
                 }]
             }
