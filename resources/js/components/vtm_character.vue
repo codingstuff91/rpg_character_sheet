@@ -28,10 +28,10 @@
                 
                 <Sante :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
 
+                <Volonte :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
+
                 <Sang :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
-                
-                <Jauges :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
-                
+                                
                 <Disciplines :personnage="personnage"/>
 
                 <AvantagesHandicaps :personnage="personnage"/>
@@ -47,11 +47,11 @@ import Navbar from './Navbar.vue';
 import Attributs from './Attributs.vue';
 import Capacites from './Capacites.vue';
 import InfosGenerales from './InfosGenerales.vue';
-import Jauges from './Jauges.vue';
 import Disciplines from './Disciplines.vue';
 import AvantagesHandicaps from './AvantagesHandicaps.vue';
 import Sang from './Sang.vue';
 import Sante from './Sante.vue';
+import Volonte from './Volonte.vue';
 
     export default {
         data() {
@@ -65,11 +65,11 @@ import Sante from './Sante.vue';
             Attributs,
             Capacites,
             InfosGenerales,
-            Jauges,
             Disciplines,
             AvantagesHandicaps,
             Sang,
-            Sante
+            Sante,
+            Volonte
         },
         props: {
             personnage: {
