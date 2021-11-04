@@ -1,26 +1,5 @@
 <template>
     <b-tab-item label="Jauges">
-        <!-- Affichage des jauges variables -->
-        <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center my-4">
-            <h2 class="is-size-5">Santé</h2>
-            <h3 class="is-size-6">Degats contondants</h3>
-            <b-rate 
-                icon-pack="fas" 
-                :max="degats_contondants_max"
-                icon="bolt"
-                spaced
-                :size="size"
-                v-model="degats_contondants">
-            </b-rate>
-            <h3 class="is-size-6">Degats aggravés</h3>
-            <b-rate icon-pack="fas"
-                :max="degats_aggraves_max"
-                icon="skull-crossbones"
-                spaced
-                :size="size"
-                v-model="degats_aggraves">
-            </b-rate>
-        </div>
         <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center mt-4">
             <h2 class="has-text-centered mb-4 is-size-5">Volonté</h2>
             <b-rate icon-pack="fas"
@@ -68,10 +47,6 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
     export default {
         data() {
             return {
-               degats_contondants : 7,
-               degats_contondants_max : 10,
-               degats_aggraves : 2, 
-               degats_aggraves_max : 7,
                volonte_max : 6,
                volonte_actuelle : 6,
                soif_max : 5,
@@ -100,8 +75,6 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
         async mounted() {
             await this.getJaugeValue(this.personnage.id, 'Soif', 'soif', 'soif_max')
             await this.getJaugeValue(this.personnage.id, 'Volonté', 'volonte_actuelle', 'volonte_max')
-            await this.getJaugeValue(this.personnage.id, 'Dégats Contondants', 'degats_contondants', 'degats_contondants_max')
-            await this.getJaugeValue(this.personnage.id, 'Dégats Aggravés', 'degats_aggraves', 'degats_aggraves_max')
             await this.getCaracteristiquesLevels(this.personnage.id, 'Humanité', 'humanite')
         },
     }
