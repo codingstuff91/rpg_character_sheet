@@ -191,6 +191,63 @@ class Caracteristique_personnageSeeder extends Seeder
             "caracteristique_id" => Caracteristique::where('nom', 'Subterfuge')->get()->first()->id,
             "niveau" => 4
         ]);
+        
+        /**
+         * CAPACITES - MENTALES
+         */
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Erudition')->get()->first()->id,
+            "niveau" => 4
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Finances')->get()->first()->id,
+            "niveau" => 4
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Investigation')->get()->first()->id,
+            "niveau" => 4
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Médecine')->get()->first()->id,
+            "niveau" => 4
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Occultisme')->get()->first()->id,
+            "niveau" => 4
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Politique')->get()->first()->id,
+            "niveau" => 4
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Sciences')->get()->first()->id,
+            "niveau" => 4
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Technologie')->get()->first()->id,
+            "niveau" => 4
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Vigilance')->get()->first()->id,
+            "niveau" => 4
+        ]);
 
         // Valeur aléatoire de score d'humanité
         DB::table('caracteristique_personnage')->insert([
