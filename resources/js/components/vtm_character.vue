@@ -26,6 +26,8 @@
 
                 <Capacites :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
                 
+                <Sante :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
+
                 <Sang :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
                 
                 <Jauges :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
@@ -49,6 +51,7 @@ import Jauges from './Jauges.vue';
 import Disciplines from './Disciplines.vue';
 import AvantagesHandicaps from './AvantagesHandicaps.vue';
 import Sang from './Sang.vue';
+import Sante from './Sante.vue';
 
     export default {
         data() {
@@ -65,7 +68,8 @@ import Sang from './Sang.vue';
             Jauges,
             Disciplines,
             AvantagesHandicaps,
-            Sang
+            Sang,
+            Sante
         },
         props: {
             personnage: {
