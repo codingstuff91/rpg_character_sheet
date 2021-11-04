@@ -26,7 +26,7 @@
 
                 <Capacites :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
                 
-                <Sang :personnage="personnage"/>
+                <Sang :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
                 
                 <Jauges :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
                 
