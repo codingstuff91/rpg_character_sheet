@@ -17,10 +17,10 @@ import 'quill/dist/quill.snow.css'
 Vue.use(VueQuillEditor)
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTint, faStar, faBolt, faFistRaised, faSkullCrossbones, faUserAlt, faQuestionCircle} from "@fortawesome/free-solid-svg-icons";
+import { faTint, faStar, faBolt, faFistRaised, faSkullCrossbones, faUserAlt, faQuestionCircle, faUser} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faTint, faStar, faBolt, faFistRaised, faSkullCrossbones, faUserAlt, faQuestionCircle);
+library.add(faTint, faStar, faBolt, faFistRaised, faSkullCrossbones, faUserAlt, faQuestionCircle, faUser);
 Vue.component('vue-fontawesome', FontAwesomeIcon);
 
 import Vue from 'vue'
