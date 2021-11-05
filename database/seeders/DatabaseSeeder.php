@@ -10,6 +10,7 @@ use Database\Seeders\CategorieSeeder;
 use Database\Seeders\InfosSangSeeder;
 use Database\Seeders\DisciplineSeeder;
 use Database\Seeders\PersonnageSeeder;
+use Database\Seeders\AllieContactSeeder;
 use Database\Seeders\CaracteristiqueSeeder;
 use Database\Seeders\AvantageHandicapSeeder;
 use Database\Seeders\DisciplinePersonnageSeeder;
@@ -36,7 +37,8 @@ class DatabaseSeeder extends Seeder
             JaugeSeeder::class,
             DisciplineSeeder::class,
             DisciplinePersonnageSeeder::class,
-            AvantageHandicapSeeder::class
+            AvantageHandicapSeeder::class,
+            AllieContactSeeder::class
         ]);
     }
 }
