@@ -104,7 +104,7 @@
                     <b-rate 
                         icon-pack="fas" 
                         :max="count_allies"
-                        icon="skull-crossbones"
+                        icon="user"
                         spaced
                         :size="size"
                         v-model="count_allies">
@@ -124,8 +124,8 @@
                         <h3 class="is-size-6">{{ allie.nom }}</h3>
                     </template>
                     <div class="">
-                        <h2>Efficacité : {{ allie.efficacité }}</h2>
-                        <h2>Fiabilité : {{ allie.fiabilité }}</h2>
+                        <h2>Efficacité : {{ allie.efficacite }}</h2>
+                        <h2>Fiabilité : {{ allie.fiabilite }}</h2>
                         <h2 class="my-2" v-html="allie.details"></h2>
                     </div>            
                 </b-message>
@@ -146,7 +146,7 @@
                     <b-rate 
                         icon-pack="fas" 
                         :max="count_contacts"
-                        icon="skull-crossbones"
+                        icon="user"
                         spaced
                         :size="size"
                         v-model="count_contacts">
@@ -165,8 +165,8 @@
                         <h3 class="is-size-6">{{ contact.nom }}</h3>
                     </template>
                     <div class="">
-                        <h2>Métier : {{ contact.métier }}</h2>
-                        <h2>Efficacité : {{ contact.efficacité }}</h2>
+                        <h2>Métier : {{ contact.metier }}</h2>
+                        <h2>Efficacité : {{ contact.efficacite }}</h2>
                         <h2 class="my-2" v-html="contact.details"></h2>
                     </div>            
                 </b-message>
@@ -186,24 +186,13 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
             return {
                 AlliesTabOpen : false,
                 ContactsTabOpen : false,
-                count_allies : 2,
-                count_contacts : 3,
-                size : 'is-small',
+                count_allies : 0,
+                count_contacts : 0,
+                size : 'is-medium',
                 isModalAlliesActive : false,
                 isModalContactsActive : false,
-                allies : [{
-                    'nom' : 'John',
-                    'métier' : 'Agent de police',
-                    'efficacité' : 2,
-                    'fiabilité' : 'Forte',
-                    'details' : "<p>Un descriptif plus détaillé de la relation avec cet allié</p><p>Ne pas oublier de mettre plusieurs explications</p>"
-                }],
-                contacts : [{
-                    'nom' : 'Smoky',
-                    'métier' : 'Lieutenant de police',
-                    'efficacité' : 3,
-                    'details' : "<p>Un descriptif plus détaillé de la relation avec cet allié</p><p>Ne pas oublier de mettre plusieurs explications</p>"
-                }]
+                allies : [],
+                contacts : []
             }
         },
         props: {
@@ -213,20 +202,18 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
         },
         mixins: [CaracteristiquesMixin],
         methods: {
-            getJaugeValue(personnage_id, caracteristique, data, data_max) {
-                axios.get(`/character/${personnage_id}/${caracteristique}/jauge_level`).then(response =>{
-                    this[data] = response.data[0].score
-                    this[data_max] = response.data[0].score_max
+            getAlliesContacts(personnage_id) {
+                axios.get(`/character/${personnage_id}/allies_contacts`).then(response =>{
+                    this.allies = response.data.allié;
+                    this.count_allies = this.allies.length
+                    this.contacts = response.data.contact
+                    this.count_contacts = this.contacts.length
                 })
-            },
-            getDescription(caracteristique_id){
-                this.$emit('get_description',caracteristique_id)
             }
         },
         async mounted() {
-            await this.getJaugeValue(this.personnage.id, 'Dégats Contondants', 'degats_contondants', 'degats_contondants_max')
-            await this.getJaugeValue(this.personnage.id, 'Dégats Aggravés', 'degats_aggraves', 'degats_aggraves_max')
-        },
+            await this.getAlliesContacts(this.personnage.id)
+        }
     }
 </script>
 
