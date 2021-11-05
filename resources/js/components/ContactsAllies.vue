@@ -115,6 +115,7 @@
                 <b-button 
                     class="my-4" 
                     type="is-info" 
+                    icon-left="question-circle"
                     @click="isModalAlliesActive = !isModalAlliesActive">
                     Aide
                 </b-button>
@@ -157,6 +158,7 @@
                 <b-button 
                     class="my-4" 
                     type="is-info" 
+                    icon-left="question-circle"
                     @click="isModalContactsActive = !isModalContactsActive">
                     Aide
                 </b-button>
