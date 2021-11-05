@@ -16,6 +16,7 @@ class CreateAllieContactsTable extends Migration
         Schema::create('allies_contacts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('personnage_id')->constrained('personnages');
+            $table->string('type');
             $table->string('nom');
             $table->string('metier');
             $table->integer('efficacite');
