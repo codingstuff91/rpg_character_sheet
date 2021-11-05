@@ -9,6 +9,7 @@ use Database\Seeders\CapaciteSeeder;
 use Database\Seeders\CategorieSeeder;
 use Database\Seeders\InfosSangSeeder;
 use Database\Seeders\DisciplineSeeder;
+use Database\Seeders\ExperienceSeeder;
 use Database\Seeders\PersonnageSeeder;
 use Database\Seeders\AllieContactSeeder;
 use Database\Seeders\CaracteristiqueSeeder;
@@ -38,7 +39,8 @@ class DatabaseSeeder extends Seeder
             DisciplineSeeder::class,
             DisciplinePersonnageSeeder::class,
             AvantageHandicapSeeder::class,
-            AllieContactSeeder::class
+            AllieContactSeeder::class,
+            ExperienceSeeder::class
         ]);
     }
 }
