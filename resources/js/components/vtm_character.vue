@@ -34,6 +34,8 @@
                 <AvantagesHandicaps :personnage="personnage"/>
                 
                 <ContactsAllies :personnage="personnage"/>
+                
+                <AttachesConvictions :personnage="personnage"/>
             </b-tabs>
         </div>
 
@@ -52,6 +54,7 @@ import Sante from './Sante.vue';
 import Volonte from './Volonte.vue';
 import ContactsAllies from './ContactsAllies.vue';
 import Informations from './Informations.vue';
+import AttachesConvictions from './AttachesConvictions.vue';
 
     export default {
         data() {
@@ -70,7 +73,8 @@ import Informations from './Informations.vue';
             Sante,
             Volonte,
             ContactsAllies,
-            Informations
+            Informations,
+            AttachesConvictions
         },
         props: {
             personnage: {
