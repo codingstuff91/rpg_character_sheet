@@ -148,12 +148,6 @@ class CaracteristiqueSeeder extends Seeder
             'categorie_id' => Categorie::where('nom', 'Jauges')->get()->first()->id,
             'nom' => 'Volonté',
             'description' => 'Le nombre de points de volonté du personnage',
-        ]);             
-
-        Caracteristique::create([
-            'categorie_id' => Categorie::where('nom', 'Humanité')->get()->first()->id,
-            'nom' => 'Humanité',
-            'description' => 'Description à saisir',
-        ]);        
+        ]);      
     }   
 }

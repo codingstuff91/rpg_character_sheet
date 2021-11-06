@@ -248,13 +248,6 @@ class Caracteristique_personnageSeeder extends Seeder
             "caracteristique_id" => Caracteristique::where('nom', 'Vigilance')->get()->first()->id,
             "niveau" => 4
         ]);
-
-        // Valeur aléatoire de score d'humanité
-        DB::table('caracteristique_personnage')->insert([
-            "personnage_id" => 1,
-            "caracteristique_id" => Caracteristique::where('nom', 'Humanité')->get()->first()->id,
-            "niveau" => 8
-        ]);
         
         // Valeur aléatoire de soif
         DB::table('caracteristique_personnage')->insert([

@@ -23,6 +23,8 @@
 
                 <Capacites :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
                 
+                <Humanite :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
+
                 <Sante :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
 
                 <Volonte :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
@@ -55,6 +57,7 @@ import Volonte from './Volonte.vue';
 import ContactsAllies from './ContactsAllies.vue';
 import Informations from './Informations.vue';
 import AttachesConvictions from './AttachesConvictions.vue';
+import Humanite from './Humanite.vue';
 
     export default {
         data() {
@@ -74,7 +77,8 @@ import AttachesConvictions from './AttachesConvictions.vue';
             Volonte,
             ContactsAllies,
             Informations,
-            AttachesConvictions
+            AttachesConvictions,
+            Humanite
         },
         props: {
             personnage: {
