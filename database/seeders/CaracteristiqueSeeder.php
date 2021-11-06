@@ -54,6 +54,18 @@ class CaracteristiqueSeeder extends Seeder
             'description' => 'Description détaillée à fournir',
         ]);
         
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Infos_générales')->get()->first()->id,
+            'nom' => 'Ambition',
+            'description' => 'Description détaillée à fournir',
+        ]);
+        
+        Caracteristique::create([
+            'categorie_id' => Categorie::where('nom', 'Infos_générales')->get()->first()->id,
+            'nom' => 'Désir',
+            'description' => 'Description détaillée à fournir',
+        ]);
+        
         /**
          * ATTRIBUTS - PHYSIQUES
          */

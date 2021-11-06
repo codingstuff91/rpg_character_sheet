@@ -15,13 +15,10 @@
                 </div>
             </div>
         </b-modal>
-
         <div class="row justify-content-center">
-            <div class="content-center">
-                <InfosGenerales :personnage="personnage"/>
-            </div>
-
             <b-tabs>
+                <Informations :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
+
                 <Attributs :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
 
                 <Capacites :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
@@ -48,13 +45,13 @@ import axios from 'axios';
 import Navbar from './Navbar.vue';
 import Attributs from './Attributs.vue';
 import Capacites from './Capacites.vue';
-import InfosGenerales from './InfosGenerales.vue';
 import Disciplines from './Disciplines.vue';
 import AvantagesHandicaps from './AvantagesHandicaps.vue';
 import Sang from './Sang.vue';
 import Sante from './Sante.vue';
 import Volonte from './Volonte.vue';
 import ContactsAllies from './ContactsAllies.vue';
+import Informations from './Informations.vue';
 
     export default {
         data() {
@@ -67,13 +64,13 @@ import ContactsAllies from './ContactsAllies.vue';
             Navbar,
             Attributs,
             Capacites,
-            InfosGenerales,
             Disciplines,
             AvantagesHandicaps,
             Sang,
             Sante,
             Volonte,
-            ContactsAllies
+            ContactsAllies,
+            Informations
         },
         props: {
             personnage: {

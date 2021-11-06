@@ -50,5 +50,17 @@ class InfosGeneralesSeeder extends Seeder
             "caracteristique_id" => Caracteristique::where('nom', 'Génération')->get()->first()->id,
             "niveau" => 12
         ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Ambition')->get()->first()->id,
+            "niveau" => "Trouver le sire qui l'a crée"
+        ]);
+
+        DB::table('caracteristique_personnage')->insert([
+            "personnage_id" => 1,
+            "caracteristique_id" => Caracteristique::where('nom', 'Désir')->get()->first()->id,
+            "niveau" => "Se nourrir sur un drogué"
+        ]);
     }
 }
