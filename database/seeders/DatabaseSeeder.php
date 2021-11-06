@@ -5,9 +5,11 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Database\Seeders\UserSeeder;
 use Database\Seeders\JaugeSeeder;
+use Database\Seeders\AttacheSeeder;
 use Database\Seeders\CapaciteSeeder;
 use Database\Seeders\CategorieSeeder;
 use Database\Seeders\InfosSangSeeder;
+use Database\Seeders\ConvictionSeeder;
 use Database\Seeders\DisciplineSeeder;
 use Database\Seeders\ExperienceSeeder;
 use Database\Seeders\PersonnageSeeder;
@@ -40,7 +42,9 @@ class DatabaseSeeder extends Seeder
             DisciplinePersonnageSeeder::class,
             AvantageHandicapSeeder::class,
             AllieContactSeeder::class,
-            ExperienceSeeder::class
+            ExperienceSeeder::class,
+            AttacheSeeder::class,
+            ConvictionSeeder::class
         ]);
     }
 }

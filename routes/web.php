@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JaugeController;
+use App\Http\Controllers\AttacheController;
+use App\Http\Controllers\ConvictionController;
 use App\Http\Controllers\DisciplineController;
 use App\Http\Controllers\PersonnageController;
 use App\Http\Controllers\DescriptionController;
@@ -31,6 +33,8 @@ Route::prefix('character')->group(function(){
     Route::get('/{personnage_id}/disciplines', [DisciplineController::class, 'index']);
     Route::get('/{personnage_id}/avantages_handicaps', [AvantageHandicapController::class, 'index']);
     Route::get('/{personnage_id}/allies_contacts', [AllieContactController::class, 'index']);
+    Route::get('/{personnage_id}/attaches', [AttacheController::class, 'index']);
+    Route::get('/{personnage_id}/convictions', [ConvictionController::class, 'index']);
 });
 
 /** Route des Descriptions de caracteristiques */
