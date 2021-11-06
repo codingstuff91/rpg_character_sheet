@@ -95,8 +95,8 @@
                     <strong>Ambition / Désir</strong>
                 </div>
             </template>
-            <div class="panel-block is-flex is-align-items-center is-justify-content-center">
-                <div class="mr-2 is-flex is-flex-direction-column  is-align-items-center is-justify-content-center">
+            <div class="panel-block is-flex is-align-items-center is-justify-content-space-evenly">
+                <div class="is-flex is-flex-direction-column  is-align-items-center is-justify-content-center">
                     <b-button 
                         icon-left="question-circle" 
                         size="is-small"
@@ -132,7 +132,7 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
             return {
                 generalInformations : [],
                 isInfosTabOpen : true,
-                isAmbitionTabOpen : false
+                isAmbitionTabOpen : true
             }
         },
         props: {
