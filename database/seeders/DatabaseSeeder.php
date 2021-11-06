@@ -7,6 +7,7 @@ use Database\Seeders\UserSeeder;
 use Database\Seeders\JaugeSeeder;
 use Database\Seeders\AttacheSeeder;
 use Database\Seeders\CapaciteSeeder;
+use Database\Seeders\HumaniteSeeder;
 use Database\Seeders\CategorieSeeder;
 use Database\Seeders\InfosSangSeeder;
 use Database\Seeders\ConvictionSeeder;
@@ -44,7 +45,8 @@ class DatabaseSeeder extends Seeder
             AllieContactSeeder::class,
             ExperienceSeeder::class,
             AttacheSeeder::class,
-            ConvictionSeeder::class
+            ConvictionSeeder::class,
+            HumaniteSeeder::class
         ]);
     }
 }
