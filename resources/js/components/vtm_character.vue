@@ -15,10 +15,6 @@
                 </div>
             </div>
         </b-modal>
-        <div class="row justify-center">
-            <!-- <InfosGenerales :personnage="personnage"/> -->
-        </div>
-
         <div class="row justify-content-center">
             <b-tabs>
                 <Informations :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
@@ -49,7 +45,6 @@ import axios from 'axios';
 import Navbar from './Navbar.vue';
 import Attributs from './Attributs.vue';
 import Capacites from './Capacites.vue';
-import InfosGenerales from './InfosGenerales.vue';
 import Disciplines from './Disciplines.vue';
 import AvantagesHandicaps from './AvantagesHandicaps.vue';
 import Sang from './Sang.vue';
@@ -69,7 +64,6 @@ import Informations from './Informations.vue';
             Navbar,
             Attributs,
             Capacites,
-            InfosGenerales,
             Disciplines,
             AvantagesHandicaps,
             Sang,
