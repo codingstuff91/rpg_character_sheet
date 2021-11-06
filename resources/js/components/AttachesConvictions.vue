@@ -48,6 +48,41 @@
                 </div>
             </div>
         </b-modal>
+        <!-- modal affichage explication des convictions -->
+        <b-modal v-model="isModalConvictionsActive" full-screen>
+            <div class="card">
+                <div class="card-content">
+                    <div class="content">
+                        <!-- Affichage explications générales -->
+                        <b-notification
+                            type="is-info is-light"
+                            aria-close-label="Close notification"
+                            has-icon
+                            icon="question-circle"
+                            role="alert">
+                            <p class="my-2">Ce sont les valeurs centrales d'un personnage, un ensemble de principes moraux qui renforcent des actions contre la dégénérescence de la bête..</p>
+                            <p class="my-2">Ce sont des croyances fortes concernant des thèmes qui ont des chances d'être abordés en jeu.</p>
+                            <p class="my-2">Le meurtre, l'amour, la loyauté, les grands idéaux, les principes politiques et les codes religieux sont tous de bonnes bases pour des convictions.</p>
+                            <p class="my-2">Une conviction peut se résumer à l'aide d'une phrase comme par exemple</p>
+                            <ul>
+                                <li>Tu ne tueras point</li>
+                                <li>Ne tue que les scélérats ou les non croyants, qu'en combat à la loyale, qu'en légitime défense</li>
+                                <li>N'expose jamais d'enfant a la violence</li>
+                                <li>Aime toujours ton prochain comme toi même</li>
+                                <li>La désobeisance est un deshonneur</li>
+                                <li>La désobeisance est un deshonneur</li>
+                                <li>Le courage est la plus noble des vertus</li>
+                            </ul>
+                        </b-notification>
+                    </div>
+                    <footer class="modal-card-foot">
+                        <b-button
+                            label="Fermer"
+                            @click="isModalConvictionsActive = false" />
+                    </footer>
+                </div>
+            </div>
+        </b-modal>
         <!-- Affichage des attaches -->
         <b-collapse
             class="panel"
@@ -93,6 +128,13 @@
                 </div>
             </template>
             <div class="panel-block is-flex is-flex-direction-column">
+                <b-button 
+                    class="my-1" 
+                    type="is-info" 
+                    icon-left="question-circle"
+                    @click="isModalConvictionsActive = !isModalConvictionsActive">
+                    Aide
+                </b-button>
                 <b-message class="my-4" v-for="conviction in convictions" :key="conviction.nom">
                     <div class="">
                         <h2 class="my-2" v-html="conviction.titre"></h2>
@@ -111,10 +153,11 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
             return {
                 generalInformations : [],
                 isAttachesTabOpen : true,
-                isConvictionsTabOpen : false,
+                isConvictionsTabOpen : true,
                 attaches : [],
                 convictions : [],
-                isModalAttachesActive : false
+                isModalAttachesActive : false,
+                isModalConvictionsActive : false
             }
         },
         props: {
