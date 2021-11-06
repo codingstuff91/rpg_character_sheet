@@ -21,4 +21,14 @@ class CaracteristiqueController extends Controller
 
         return $caracteristiques;
     }
+
+    public function update(Request $request)
+    {
+        $caracteristique = DB::table('caracteristique_personnage')
+        ->where('personnage_id', $request->character_id)
+        ->where('caracteristique_id', $request->id_caracteristique)
+        ->update(["niveau" => $request->new_value]);
+
+        return "Niveau mis à jour";
+    }
 }

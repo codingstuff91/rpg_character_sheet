@@ -29,6 +29,7 @@ Route::get('/', function () {
 Route::prefix('character')->group(function(){
     Route::get('/{character_id}', [PersonnageController::class, 'show']);
     Route::get('/{character_id}/{characteristics_category_name}/levels', [CaracteristiqueController::class, 'get_levels']);
+    Route::post('/{character_id}/{id_caracteristique}/update', [CaracteristiqueController::class, 'update']);
     Route::get('/{personnage_id}/{nom_caracteristique}/jauge_level', [JaugeController::class, 'get_jauge_value']);
     Route::get('/{personnage_id}/disciplines', [DisciplineController::class, 'index']);
     Route::get('/{personnage_id}/avantages_handicaps', [AvantageHandicapController::class, 'index']);

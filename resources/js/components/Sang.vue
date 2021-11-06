@@ -5,6 +5,7 @@
             <b-rate icon-pack="fas"
                 :size="size"
                 :max="soif_max"
+                @change="updateSoif"
                 icon="tint"
                 spaced
                 v-model="soif">
@@ -164,6 +165,19 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
             },
             getDescription(caracteristique_id){
                 this.$emit('get_description',caracteristique_id)
+            },
+            updateSoif(new_value){
+                axios.post(`/character/${this.personnage.id}/${this.infos_puissance_sang[0].id}/update`, {
+                    new_value
+                }).then(response => {
+                    console.log(response.data);
+                }).catch(error => {
+                    console.log(error);
+                    this.$buefy.toast.open({
+                        message: "Erreur lors de la de mise à jour",
+                        type: 'is-danger'
+                    })                    
+                })
             }
         },
         async mounted() {
