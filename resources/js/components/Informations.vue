@@ -1,6 +1,6 @@
 <template>
     <b-tab-item label="Infos générales">
-        <!-- Affichage des alliés -->
+        <!-- Affichage des Infos générales -->
         <b-collapse
             class="panel"
             animation="slide"
@@ -10,7 +10,7 @@
                     class="panel-heading is-flex is-justify-content-space-between is-align-items-center"
                     role="button"
                     aria-controls="contentIdForA11y2">
-                    <strong>Infos générales</strong>
+                    <strong>Personnage</strong>
                 </div>
             </template>
             <div class="panel-block columns is-mobile">
@@ -77,10 +77,50 @@
                     </div>
                 </div>
                 <div class="column">
-                    
+
                 </div>
             </div>
         </b-collapse>
+        
+        <!-- Partie ambition et désir -->
+        <b-collapse
+            class="panel"
+            animation="slide"
+            v-model="isAmbitionTabOpen">
+            <template #trigger>
+                <div
+                    class="panel-heading is-flex is-justify-content-space-between is-align-items-center"
+                    role="button"
+                    aria-controls="contentIdForA11y2">
+                    <strong>Ambition / Désir</strong>
+                </div>
+            </template>
+            <div class="panel-block is-flex is-align-items-center is-justify-content-center">
+                <div class="mr-2 is-flex is-flex-direction-column  is-align-items-center is-justify-content-center">
+                    <b-button 
+                        icon-left="question-circle" 
+                        size="is-small"
+                        type="is-danger"
+                        rounded
+                        @click="getDescription(generalInformations[6].id)"> 
+                        {{ generalInformations[6].nom }}
+                    </b-button>
+                    <h2 class="mb-4 is-size-5">{{ generalInformations[6].niveau }}</h2>
+                </div>
+                <div class="is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
+                    <b-button 
+                        icon-left="question-circle" 
+                        size="is-small"
+                        type="is-danger"
+                        rounded
+                        @click="getDescription(generalInformations[7].id)"> 
+                        {{ generalInformations[7].nom }}
+                    </b-button>
+                    <h2 class="mb-4 is-size-5">{{ generalInformations[7].niveau }}</h2>
+                </div>
+            </div>
+        </b-collapse>
+
     </b-tab-item>
 </template>
 <script>
@@ -91,7 +131,8 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
         data() {
             return {
                 generalInformations : [],
-                isInfosTabOpen : true
+                isInfosTabOpen : true,
+                isAmbitionTabOpen : false
             }
         },
         props: {
