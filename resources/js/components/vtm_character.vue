@@ -15,13 +15,14 @@
                 </div>
             </div>
         </b-modal>
+        <div class="row justify-center">
+            <!-- <InfosGenerales :personnage="personnage"/> -->
+        </div>
 
         <div class="row justify-content-center">
-            <div class="content-center">
-                <InfosGenerales :personnage="personnage"/>
-            </div>
-
             <b-tabs>
+                <Informations :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
+
                 <Attributs :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
 
                 <Capacites :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
@@ -55,6 +56,7 @@ import Sang from './Sang.vue';
 import Sante from './Sante.vue';
 import Volonte from './Volonte.vue';
 import ContactsAllies from './ContactsAllies.vue';
+import Informations from './Informations.vue';
 
     export default {
         data() {
@@ -73,7 +75,8 @@ import ContactsAllies from './ContactsAllies.vue';
             Sang,
             Sante,
             Volonte,
-            ContactsAllies
+            ContactsAllies,
+            Informations
         },
         props: {
             personnage: {
