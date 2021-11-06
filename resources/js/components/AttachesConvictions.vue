@@ -1,5 +1,53 @@
 <template>
     <b-tab-item label="Attaches / Convictions">
+        <!-- modal affichage explication des attaches -->
+        <b-modal v-model="isModalAttachesActive" full-screen>
+            <div class="card">
+                <div class="card-content">
+                    <div class="content">
+                        <!-- Affichage explications générales -->
+                        <b-notification
+                            type="is-info is-light"
+                            aria-close-label="Close notification"
+                            has-icon
+                            icon="question-circle"
+                            role="alert">
+                            <p class="my-2">Une attache est un humain représentant ce à quoi votre personnage attachait de l'importance de son vivant, une personne qui semble incarner l'une de ses convictions.</p>
+                            <p class="my-2">Les attaches relient le personnage à son humanité et l'aident à la conserver en termes de mécaniques de jeu.</p>
+                        </b-notification>
+                        <b-notification
+                            type="is-warning is-light"
+                            aria-close-label="Close notification"
+                            has-icon
+                            icon="exclamation-triangle"
+                            role="alert">
+                            <p class="my-2">Si le personnage perd cette personne, il perd également la conviction qui était liée à elle.</p>
+                        </b-notification>
+                        <b-notification
+                            type="is-info is-light"
+                            aria-close-label="Close notification"
+                            has-icon
+                            icon="question-circle"
+                            role="alert">
+                            <p class="my-2">Une attache peut être l'un des exemples suivants : </p>
+                            <ul>
+                                <li>Le conjoint, l'amant ou le parent humain encore en vie du personnage</li>
+                                <li>L'enfant humain ou un descendant de la lignée du personnage</li>
+                                <li>Un humain qui ressemble trait pour trait à quelqu'un que le personnage aimait de son vivant</li>
+                                <li>Un humain appartenant à la famille de quelqu'un que le personnage a tué</li>
+                                <li>Quelqu'un que le personnage a fini par reconnaitre comme l'un des rares bons cœurs dans le monde, même à ses yeux</li>
+                            </ul>
+                            <p class="my-2">Les attaches relient le personnage à son humanité et l'aident à la conserver en termes de mécaniques de jeu.</p>
+                        </b-notification>
+                    </div>
+                    <footer class="modal-card-foot">
+                        <b-button
+                            label="Fermer"
+                            @click="isModalAttachesActive = false" />
+                    </footer>
+                </div>
+            </div>
+        </b-modal>
         <!-- Affichage des attaches -->
         <b-collapse
             class="panel"
@@ -14,6 +62,13 @@
                 </div>
             </template>
             <div class="panel-block is-flex is-flex-direction-column">
+                <b-button 
+                    class="my-1" 
+                    type="is-info" 
+                    icon-left="question-circle"
+                    @click="isModalAttachesActive = !isModalAttachesActive">
+                    Aide
+                </b-button>
                 <b-message class="my-4" v-for="attache in attaches" :key="attache.nom">
                     <template #header>
                         <h3 class="is-size-6">{{ attache.nom }}</h3>
@@ -58,7 +113,8 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
                 isAttachesTabOpen : true,
                 isConvictionsTabOpen : false,
                 attaches : [],
-                convictions : []
+                convictions : [],
+                isModalAttachesActive : false
             }
         },
         props: {
