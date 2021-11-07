@@ -12,6 +12,7 @@
                         :icon="icon"
                         spaced
                         :size="size"
+                        disabled
                         v-model="capacite.niveau">
                     </b-rate>
                 </div>
@@ -25,6 +26,7 @@
                         :icon="icon"
                         spaced
                         :size="size"
+                        disabled
                         v-model="capacite.niveau">
                     </b-rate>
                 </div>
@@ -38,6 +40,7 @@
                         :icon="icon"
                         spaced
                         :size="size"
+                        disabled
                         v-model="capacite.niveau">
                     </b-rate>
                 </div>
