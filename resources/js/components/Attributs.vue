@@ -12,6 +12,7 @@
                         :icon="icon"
                         spaced
                         :size="size"
+                        disabled
                         v-model="attribut.niveau">
                     </b-rate>
                 </div>
@@ -25,6 +26,7 @@
                         :icon="icon"
                         spaced
                         :size="size"
+                        disabled
                         v-model="attribut.niveau">
                     </b-rate>
                 </div>
@@ -37,7 +39,8 @@
                         icon-pack="fas" 
                         :icon="icon"
                         spaced
-                        :size="size"        
+                        :size="size"
+                        disabled        
                         v-model="attribut.niveau">
                     </b-rate>
                 </div>

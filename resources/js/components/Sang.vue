@@ -1,7 +1,18 @@
 <template>
     <b-tab-item label="Sang">
         <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center mt-4">
-            <h2 class="has-text-centered mb-4 is-size-5">Soif</h2>
+            <div class="is-flex is-flex-direction-row">
+            <h2 class="has-text-centered mb-4 is-size-5 mr-2">Soif</h2>
+                <b-button 
+                type="is-danger"
+                has-icon
+                icon-left="ban"
+                size="is-small"
+                rounded
+                @click="resetSoif">
+                Reset
+                </b-button>
+            </div>
             <b-rate icon-pack="fas"
                 :size="size"
                 :max="soif_max"
@@ -17,7 +28,7 @@
                 aria-close-label="Close notification"
                 role="alert"
                 :closable="closable">
-                <h2 class="is-size-5">Puissance du sang : {{ infos_puissance_sang[0].niveau }}</h2>
+                <h2 class="is-size-5">Puissance du sang : {{ infos_puissance_sang[1].niveau }}</h2>
             </b-notification>
 
             <!-- Affichage bonus coup de sang -->
@@ -171,6 +182,20 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
                     new_value
                 }).then(response => {
                     console.log(response.data);
+                }).catch(error => {
+                    console.log(error);
+                    this.$buefy.toast.open({
+                        message: "Erreur lors de la de mise à jour",
+                        type: 'is-danger'
+                    })                    
+                })
+            },
+            resetSoif(){
+                axios.post(`/character/${this.personnage.id}/${this.infos_puissance_sang[0].id}/update`, {
+                    new_value : 0
+                }).then(response => {
+                    console.log(response.data);
+                    this.soif = 0
                 }).catch(error => {
                     console.log(error);
                     this.$buefy.toast.open({

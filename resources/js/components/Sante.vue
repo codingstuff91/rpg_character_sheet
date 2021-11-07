@@ -8,14 +8,27 @@
                     <h3 class="is-size-6">Degats contondants (armes à feu, couteaux, coups)</h3>
                 </template>
                 <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center my-4">
-                    <b-rate 
-                        icon-pack="fas" 
-                        :max="degats_contondants_max"
-                        icon='fist-raised'
-                        spaced
-                        :size="size"
-                        v-model="degats_contondants">
-                    </b-rate>
+                    <div class="is-flex is-flex-direction-row is-align-items-center">
+                        <b-button
+                            class="mr-2"
+                            type="is-danger"
+                            has-icon
+                            icon-left="ban"
+                            size="is-small"
+                            rounded
+                            @click="resetDegatsContondants">
+                            Reset
+                        </b-button>
+                        <b-rate 
+                            icon-pack="fas" 
+                            :max="degats_contondants_max"
+                            icon='fist-raised'
+                            spaced
+                            :size="size"
+                            @change="updateDegatsContondants"
+                            v-model="degats_contondants">
+                        </b-rate>
+                    </div>
                     <b-notification
                         type="is-warning"
                         aria-close-label="Close notification"
@@ -33,14 +46,27 @@
                     <h3 class="is-size-6">Degats aggravés (feu, soleil, griffes, crocs)</h3>
                 </template>
                 <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center my-4">
-                    <b-rate 
-                        icon-pack="fas" 
-                        :max="degats_aggraves_max"
-                        icon="skull-crossbones"
-                        spaced
-                        :size="size"
-                        v-model="degats_aggraves">
-                    </b-rate>
+                    <div class="is-flex is-flex-direction-row is-align-items-center">
+                        <b-button
+                            class="mr-2"
+                            type="is-danger"
+                            has-icon
+                            icon-left="ban"
+                            size="is-small"
+                            rounded
+                            @click="resetDegatsAggraves">
+                            Reset
+                        </b-button>
+                        <b-rate 
+                            icon-pack="fas" 
+                            :max="degats_aggraves_max"
+                            icon="skull-crossbones"
+                            spaced
+                            :size="size"
+                            @change="updateDegatsAggraves"
+                            v-model="degats_aggraves">
+                        </b-rate>
+                    </div>
                     <b-notification
                         type="is-warning"
                         aria-close-label="Close notification"
@@ -61,11 +87,13 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
     export default {
         data() {
             return {
-               degats_contondants : 7,
-               degats_contondants_max : 10,
+               degats_contondants : 0,
+               degats_contondants_max : 0,
                degats_aggraves : 2, 
                degats_aggraves_max : 7,
-               size : 'is-large'
+               size : 'is-large',
+               jauge_degats_contondants_id : 0,
+               jauge_degats_aggraves_id : 0
             }
         },
         props: {
@@ -75,19 +103,51 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
         },
         mixins: [CaracteristiquesMixin],
         methods: {
-            getJaugeValue(personnage_id, caracteristique, data, data_max) {
+            getJaugeValue(personnage_id, caracteristique, data, data_max, jauge_id) {
                 axios.get(`/character/${personnage_id}/${caracteristique}/jauge_level`).then(response =>{
                     this[data] = response.data[0].score
                     this[data_max] = response.data[0].score_max
+                    this[jauge_id] = response.data[0].caracteristique_id
                 })
             },
-            getDescription(caracteristique_id){
-                this.$emit('get_description',caracteristique_id)
-            }
+            updateDegatsContondants(new_value){
+                axios.post(`/character/${this.personnage.id}/${this.jauge_degats_contondants_id}/update_jauge_level`, {
+                    new_value
+                }).then(response => {
+                    console.log(response.data);
+                }).catch(error => {
+                    console.log(error);
+                    this.$buefy.toast.open({
+                        message: "Erreur lors de la de mise à jour",
+                        type: 'is-danger'
+                    })                    
+                })
+            },
+            updateDegatsAggraves(new_value){
+                axios.post(`/character/${this.personnage.id}/${this.jauge_degats_aggraves_id}/update_jauge_level`, {
+                    new_value
+                }).then(response => {
+                    console.log(response.data);
+                }).catch(error => {
+                    console.log(error);
+                    this.$buefy.toast.open({
+                        message: "Erreur lors de la de mise à jour",
+                        type: 'is-danger'
+                    })                    
+                })
+            },
+            resetDegatsContondants(){
+                this.updateDegatsContondants(0)
+                this.degats_contondants = 0
+            },
+            resetDegatsAggraves(){
+                this.updateDegatsAggraves(0)
+                this.degats_aggraves = 0
+            },
         },
         async mounted() {
-            await this.getJaugeValue(this.personnage.id, 'Dégats Contondants', 'degats_contondants', 'degats_contondants_max')
-            await this.getJaugeValue(this.personnage.id, 'Dégats Aggravés', 'degats_aggraves', 'degats_aggraves_max')
+            await this.getJaugeValue(this.personnage.id, 'Dégats Contondants', 'degats_contondants', 'degats_contondants_max', 'jauge_degats_contondants_id')
+            await this.getJaugeValue(this.personnage.id, 'Dégats Aggravés', 'degats_aggraves', 'degats_aggraves_max', 'jauge_degats_aggraves_id')
         },
     }
 </script>

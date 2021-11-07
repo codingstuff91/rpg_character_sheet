@@ -33,15 +33,27 @@
                     <h3 class="is-size-6">{{ scores[1].nom }}</h3>
                 </template>
                 <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center my-4">
-                    <b-rate 
-                        icon-pack="fas" 
-                        :max="fletrissures_max"
-                        icon='fist-raised'
-                        spaced
-                        :size="size"
-                        disabled
-                        v-model="scores[1].niveau">
-                    </b-rate>
+                    <div class="is-flex is-flex-direction-row is-align-items-center">
+                        <b-button
+                            class="mr-2"
+                            type="is-danger"
+                            has-icon
+                            icon-left="ban"
+                            size="is-small"
+                            rounded
+                            @click="resetScoreFletrissures">
+                            Reset
+                        </b-button>
+                        <b-rate 
+                            icon-pack="fas" 
+                            :max="fletrissures_max"
+                            icon='fist-raised'
+                            spaced
+                            :size="size"
+                            @change="updateScoreFletrissures"
+                            v-model="scores[1].niveau">
+                        </b-rate>
+                    </div>
                     <b-notification
                         type="is-warning"
                         aria-close-label="Close notification"
@@ -71,7 +83,7 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
             return {
                humanite_max : 10,
                humanite : 7,
-               scores : 0,
+               scores : [],
                size : 'is-large'
             }
         },
@@ -89,6 +101,23 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
         methods: {
             getDescription(caracteristique_id){
                 this.$emit('get_description',caracteristique_id)
+            },
+            updateScoreFletrissures(new_value){
+                axios.post(`/character/${this.personnage.id}/${this.scores[1].id}/update`, {
+                    new_value
+                }).then(response => {
+                    console.log(response.data);
+                }).catch(error => {
+                    console.log(error);
+                    this.$buefy.toast.open({
+                        message: "Erreur lors de la de mise à jour",
+                        type: 'is-danger'
+                    })                    
+                })
+            },
+            resetScoreFletrissures(){
+                this.updateScoreFletrissures(0)
+                this.scores[1].niveau = 0
             }
         },
         async mounted() {
