@@ -14,9 +14,19 @@ class JaugeController extends Controller
         ->join('caracteristiques', 'jauges.caracteristique_id', '=', 'caracteristiques.id')
         ->where('personnage_id', $request->personnage_id)
         ->where('caracteristiques.nom', $request->nom_caracteristique)
-        ->select('score', 'score_max')
+        ->select('jauges.caracteristique_id','score', 'score_max')
         ->get();
 
         return $scores;
+    }
+
+    public function updage_jauge_value(Request $request)
+    {
+        $jauge = DB::table('jauges')
+        ->where('personnage_id', $request->personnage_id)
+        ->where('caracteristique_id', $request->id_caracteristique)
+        ->update(['score' => $request->new_value]);
+        
+        return "Valeur jauge mise à jour";
     }
 }
