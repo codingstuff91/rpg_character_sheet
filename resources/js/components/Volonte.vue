@@ -19,6 +19,18 @@
                     </b-rate>
                     
                     <b-notification
+                        type="is-success"
+                        aria-close-label="Close notification"
+                        role="alert">
+                        <p class="my-2">Utiliser des points de volonté pour :</p>
+                        <ul>
+                            <li>=> Relancer 3 dés max de tout groupement (pas les dés de soif, ni pour les jets d'humanité et de volonté)</li>
+                            <li>=> Pouvoir contrôler son personnage pendant un tour durant une frénésie</li>
+                            <li>=> Ignorer le malus de santé "affaibli" du à des dégats de santé pendant un tour</li>
+                        </ul>
+                    </b-notification>
+
+                    <b-notification
                         type="is-warning"
                         aria-close-label="Close notification"
                         role="alert">
