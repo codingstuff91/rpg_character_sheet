@@ -2,10 +2,12 @@
     <b-navbar>
         <template #brand>
             <b-navbar-item>
-                <img
-                    src="https://raw.githubusercontent.com/buefy/buefy/dev/static/img/buefy-logo.png"
-                    alt="Lightweight UI components for Vue.js based on Bulma"
-                >
+                <b-icon
+                    icon="ankh"
+                    type="is-danger"
+                    size="is-large">
+                </b-icon>
+                <h3 class="title">Vamp Perso</h3>
             </b-navbar-item>
         </template>
         <template #start>
@@ -39,3 +41,10 @@
         </template>
     </b-navbar>
 </template>
+
+<style scoped>
+.title{
+    font-family: 'Vampiro One', cursive;
+    color:#f14668;
+}
+</style>
