@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Vampiro+One&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Connexion</title>
     <style>
         .title{
             font-family: 'Vampiro One', cursive;
@@ -38,9 +38,15 @@
             
                 <label class="text-center mt-4" for="password">Mot de passe</label>
                 <input class="mb-4 w-2/3 mx-auto py-1 px-4 focus:outline-none focus:ring focus:border-blue-300 rounded-lg" type="password" name="password">
-            
+                
                 <input class="my-4 w-2/3 mx-auto bg-red-500 text-white p-2 rounded-lg" type="submit" value="Connexion">
             </form>
+        </div>
+        <div class="max-w-xl mx-auto mt-2">
+            <div class="flex flex-row items-center w-full">
+                <p class="text-center text-lg mr-2">Vous n'avez pas encore de compte ? Cliquez ici : </p>
+                <a href="/register" class="rounded p-2 bg-red-500 text-white">Inscription</a>
+            </div>
         </div>
     </div>
 </body>
