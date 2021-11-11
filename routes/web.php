@@ -11,22 +11,11 @@ use App\Http\Controllers\AllieContactController;
 use App\Http\Controllers\CaracteristiqueController;
 use App\Http\Controllers\AvantageHandicapController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('character')->group(function(){
+Route::prefix('character')->middleware('auth')->group(function(){
     Route::get('/{character_id}', [PersonnageController::class, 'show']);
     Route::get('/{character_id}/{characteristics_category_name}/levels', [CaracteristiqueController::class, 'get_levels']);
     Route::post('/{character_id}/{id_caracteristique}/update', [CaracteristiqueController::class, 'update']);
@@ -40,6 +29,8 @@ Route::prefix('character')->group(function(){
 });
 
 /** Route des Descriptions de caracteristiques */
-Route::get('/description/edit', [DescriptionController::class, 'edit']);
-Route::get('/description/{id}', [DescriptionController::class, 'show']);
-Route::put('/description/{id}/edit', [DescriptionController::class, 'update']);
+route::prefix('description')->middleware('auth')->group(function(){
+    Route::get('/edit', [DescriptionController::class, 'edit']);
+    Route::get('/{id}', [DescriptionController::class, 'show']);
+    Route::put('/{id}/edit', [DescriptionController::class, 'update']);
+});
