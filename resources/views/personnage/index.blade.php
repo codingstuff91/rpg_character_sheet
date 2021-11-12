@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container mx-auto">
-        <h1 class="title has-text-centered mt-4">Personnages disponibles</h1>
+        <h1 class="title has-text-centered has-text-danger pt-4">Personnages disponibles</h1>
         <div class="columns">
             @foreach ($personnages as $perso)
 
@@ -11,7 +11,6 @@
                     <article class="message is-danger">
                         <div class="message-header">
                         <p>{{ $perso->nom }}</p>
-                        <button class="delete" aria-label="delete"></button>
                         </div>
                         <div class="message-body">
                             <a href="/character/{{ $perso->id }}">Feuille personnage</a>
