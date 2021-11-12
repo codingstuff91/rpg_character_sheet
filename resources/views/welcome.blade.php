@@ -27,26 +27,26 @@
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                <div class="fixed top-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Accueil</a>
                         <form action="/logout" method="POST">
                             @csrf
-                            <input type="submit" value="Deconnexion">
+                            <input class="buttons" type="submit" value="Deconnexion">
                         </form>
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Connexion</a>
+                        <a href="{{ route('login') }}" class="buttons text-sm dark:text-gray-500">Connexion</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Inscription</a>
+                            <a href="{{ route('register') }}" class="buttons text-sm dark:text-gray-500">Inscription</a>
                         @endif
                     @endauth
                 </div>
             @endif
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
+                <div class="flex flex-column justify-center align-items-center pt-8 sm:justify-start sm:pt-0">
                     <h1 class="title">VAMP PERSO</h1>
+                    <h2 class="text-lg text-center">Gestion de feuilles de personnage pour "Vampire la mascarade 5ème édition"</h2>
                 </div>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
@@ -59,7 +59,7 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Les joueurs ont accès facilement aux informations de leurs personnages.
+                                    Les joueurs ont accès aux informations de leurs personnages.
                                     Les caractéristiques sont regroupés par onglets.
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Gestion simplifiée et dynamique des jauges variables de chaque personnage (Soif, Volonté, Santé, etc...)
+                                    Gestion simplifiée des jauges variables de chaque personnage (Soif, Volonté, Santé, etc...)
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Affichage de messages explicatifs d'aide aux joueurs sur les notions importantes de la feuille (Contacts, Alliés, Attaches, etc...)
+                                    Aide aux joueurs sur les notions importantes de la feuille (Contacts, Alliés, Attaches, etc...)
                                 </div>
                             </div>
                         </div>
@@ -99,7 +99,7 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Consultation plus rapide des caracteristiques des personnages par le Maitre du Jeu (MJ).
+                                    Consultation rapide des caracteristiques des personnages par le Maitre du Jeu (MJ).
                                 </div>
                             </div>
                         </div>
