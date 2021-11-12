@@ -18,7 +18,6 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'dimitri',
             'email' => 'dimitri.krajka@gmail.com',
-            'pseudo' => 'didou',
             'role' => 'joueur',
             'password' => bcrypt('secret'),
             'remember_token' => Str::random(20)
@@ -27,7 +26,6 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'deborah',
             'email' => 'deborah@gmail.com',
-            'pseudo' => 'lylysu',
             'role' => 'joueur',
             'password' => bcrypt('secret'),
             'remember_token' => Str::random(20)
@@ -36,7 +34,6 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'mael',
             'email' => 'mael@gmail.com',
-            'pseudo' => 'mael',
             'role' => 'joueur',
             'password' => bcrypt('secret'),
             'remember_token' => Str::random(20)
@@ -45,7 +42,6 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'bellal',
             'email' => 'bellal@gmail.com',
-            'pseudo' => 'bellal',
             'role' => 'joueur',
             'password' => bcrypt('secret'),
             'remember_token' => Str::random(20)
