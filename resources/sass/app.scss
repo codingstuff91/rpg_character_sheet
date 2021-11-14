@@ -32,3 +32,13 @@
     margin-left: 10px;
     margin-right: 10px;
 }
+
+.auth_buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    position: absolute;
+    top: 0;
+}
