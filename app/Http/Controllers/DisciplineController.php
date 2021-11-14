@@ -23,14 +23,14 @@ class DisciplineController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nom' => 'required',
-            'niveau' => 'required',
-            'pouvoir' => 'required',
-            'description' => 'required',
-            'cout' => 'required',
-            'groupement_des' => 'required',
-            'systeme' => 'required',
-            'duree' => 'required',
+            'discipline.nom' => 'required',
+            'discipline.niveau' => 'required',
+            'discipline.pouvoir' => 'required',
+            'discipline.description' => 'required',
+            'discipline.cout' => 'required',
+            'discipline.groupement_des' => 'required',
+            'discipline.systeme' => 'required',
+            'discipline.duree' => 'required',
         ]);
         
         Discipline::create([
