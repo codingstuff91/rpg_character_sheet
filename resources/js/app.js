@@ -12,6 +12,9 @@ Vue.component('character-sheet', CharacterSheet);
 import EditDescription from './components/EditDescription.vue';
 Vue.component('edit-description', EditDescription);
 
+import DisciplineCreate from './components/discipline/create.vue';
+Vue.component('create-discipline', DisciplineCreate);
+
 import VueQuillEditor from 'vue-quill-editor'
 import 'quill/dist/quill.snow.css'
 Vue.use(VueQuillEditor)
