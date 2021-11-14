@@ -43,5 +43,7 @@ class DisciplineController extends Controller
             "systeme" => $request->discipline['systeme'],
             "duree" => $request->discipline['duree']
         ]);
+
+        return "Discipline crée avec succeès";
     }
 }
