@@ -1,5 +1,43 @@
 <template>
     <b-tab-item label="Infos générales">
+        <!-- Modal explication utilisation des points d'XP -->
+        <b-modal v-model="isModalExperienceOpen" full-screen>
+            <div class="card">
+                <div class="card-content">
+                    <div class="content">
+                        <!-- Affichage explications générales -->
+                        <b-notification
+                            type="is-info is-light"
+                            aria-close-label="Close notification"
+                            has-icon
+                            icon="question-circle"
+                            role="alert">
+                            <p class="my-2">Les points d'expérience permettent de faire progresser votre personnage.</p>
+                            <p class="my-2">Certaines compétences nécessitent certaines conditions pour etre améliorées (par ex : disciplines).</p>
+                            <p class="my-2">En fonction de ce que vous voulez améliorer, cela va couter un certains nombre de points (voir tableau ci-dessous)</p>
+                            <img src="/img/tableau_experience.png" alt="tableau_experience">
+                        </b-notification>
+                        <b-notification
+                            type="is-info is-light"
+                            aria-close-label="Close notification"
+                            has-icon
+                            icon="question-circle"
+                            role="alert">
+                            <p class="my-2">A l'issue d'une partie chaque joueur obtiendra 1 à 5 points d'XP.</p>
+                            <p class="my-2">1 point automatiquement pour tous les joueurs à la fin de la partie.</p>
+                            <p class="my-2">1 point pour l'apprentissage du personnage</p>
+                            <p class="my-2">1 à 2 points pour une bonne interprétation du personnage, bon comportement et absence de meta-gaming</p>
+                            <p class="my-2">1 point pour un acte héroique ou faisant avancer considérablement le scénario</p>
+                        </b-notification>
+                    </div>
+                    <footer class="modal-card-foot">
+                        <b-button
+                            label="Fermer"
+                            @click="isModalExperienceOpen = false" />
+                    </footer>
+                </div>
+            </div>
+        </b-modal>   
         <!-- Affichage des Infos générales -->
         <b-collapse
             class="panel"
@@ -77,7 +115,25 @@
                     </div>
                 </div>
                 <div class="column">
+                    <b-message>
+                        <template #header>
+                            <div class="is-flex">
+                                <h3 class="is-size-6">{{ experience[0].nom }} (points d'XP)</h3>
 
+                            </div>
+                        </template>
+                        <div>
+                            <b-button 
+                                class="mx-2" 
+                                type="is-info"
+                                size="is-small" 
+                                icon-left="question-circle"
+                                @click="isModalExperienceOpen = !isModalExperienceOpen">
+                                Aide
+                            </b-button>
+                            <h2 class="is-size-6">{{ experience[0].niveau }} points</h2>
+                        </div>            
+                    </b-message>
                 </div>
             </div>
         </b-collapse>
@@ -132,7 +188,9 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
             return {
                 generalInformations : [],
                 isInfosTabOpen : true,
-                isAmbitionTabOpen : true
+                isAmbitionTabOpen : true,
+                experience : [],
+                isModalExperienceOpen : false
             }
         },
         props: {
@@ -148,6 +206,7 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
         },
         async mounted() {
             await this.getCaracteristiquesLevels(this.personnage.id, 'Infos_générales', 'generalInformations');
+            await this.getCaracteristiquesLevels(this.personnage.id, 'Experience', 'experience');
         }
     }
 </script>
