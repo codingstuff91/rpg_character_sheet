@@ -35,3 +35,5 @@ route::prefix('description')->middleware('auth')->group(function(){
     Route::get('/{id}', [DescriptionController::class, 'show']);
     Route::put('/{id}/edit', [DescriptionController::class, 'update']);
 });
+
+Route::resource('discipline', DisciplineController::class);
