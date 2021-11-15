@@ -46,4 +46,26 @@ class DisciplineController extends Controller
 
         return "Discipline crée avec succeès";
     }
+
+    public function edit(Request $request)
+    {
+        $discipline = Discipline::find($request->discipline);
+        return view('discipline.edit')->with(['discipline' => $discipline]);
+    }
+
+    public function update(Request $request)
+    {
+        $discipline = Discipline::where('id', $request->discipline['id'])->update([
+            "nom" => $request->discipline['nom'],
+            "niveau" => $request->discipline['niveau'],
+            "pouvoir" => $request->discipline['pouvoir'],
+            "description" => $request->discipline['description'],
+            "cout" => $request->discipline['cout'],
+            "groupement_des" => $request->discipline['groupement_des'],
+            "systeme" => $request->discipline['systeme'],
+            "duree" => $request->discipline['duree']            
+        ]);
+
+        return "Discipline mise à jour";
+    }
 }
