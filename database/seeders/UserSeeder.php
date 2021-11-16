@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
     public function run()
     {     
         User::create([
-            'name' => 'dimitri',
+            'name' => 'Dimitri',
             'email' => 'dimitri.krajka@gmail.com',
             'role' => 'joueur',
             'password' => bcrypt('secret'),
@@ -24,15 +24,15 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'deborah',
-            'email' => 'deborah@gmail.com',
+            'name' => 'Déborah',
+            'email' => 'Deborah.capaldi@hotmail.fr',
             'role' => 'joueur',
             'password' => bcrypt('secret'),
             'remember_token' => Str::random(20)
         ]);
 
         User::create([
-            'name' => 'mael',
+            'name' => 'Mael',
             'email' => 'mael@gmail.com',
             'role' => 'joueur',
             'password' => bcrypt('secret'),
@@ -40,10 +40,26 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'bellal',
+            'name' => 'Bellal',
             'email' => 'bellal@gmail.com',
             'role' => 'joueur',
             'password' => bcrypt('secret'),
+            'remember_token' => Str::random(20)
+        ]);
+
+        User::create([
+            'name' => 'Martin',
+            'email' => 'martin@gmail.com',
+            'role' => 'joueur',
+            'password' => bcrypt('secret'),
+            'remember_token' => Str::random(20)
+        ]);
+
+        User::create([
+            'name' => 'Matthieu',
+            'email' => 'matthieu.martin2812@gmail.com',
+            'role' => 'mj',
+            'password' => bcrypt('Fnp90std@'),
             'remember_token' => Str::random(20)
         ]);
     }
