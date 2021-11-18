@@ -38,7 +38,9 @@ class create_characters extends Command
      */
     public function handle()
     {
-        $characters = DB::table('caracteristique_personnage')->get();
+        $characters = DB::table('caracteristique_personnage')
+        ->where('personnage_id', 1)
+        ->get();
 
         foreach ($characters as $character) {
             DB::table('caracteristique_personnage')->insert([
