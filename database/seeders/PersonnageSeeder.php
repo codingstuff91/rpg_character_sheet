@@ -17,26 +17,32 @@ class PersonnageSeeder extends Seeder
     public function run()
     {
         Personnage::create([
-            'user_id' => User::where('name', 'dimitri')->get()->first()->id,
+            'user_id' => User::where('name', 'Dimitri')->get()->first()->id,
             'nom' => 'Nosfé',
             'jeu' => 'Vampire la mascarade',
         ]);
 
         Personnage::create([
-            'user_id' => User::where('name', 'deborah')->get()->first()->id,
+            'user_id' => User::where('name', 'Déborah')->get()->first()->id,
             'nom' => 'Malcolm',
             'jeu' => 'Vampire la mascarade',
         ]);
 
         Personnage::create([
-            'user_id' => User::where('name', 'mael')->get()->first()->id,
+            'user_id' => User::where('name', 'Mael')->get()->first()->id,
             'nom' => 'Deniel',
             'jeu' => 'Vampire la mascarade',
         ]);
         
         Personnage::create([
-            'user_id' => User::where('name', 'bellal')->get()->first()->id,
+            'user_id' => User::where('name', 'Bellal')->get()->first()->id,
             'nom' => 'Mohammed',
+            'jeu' => 'Vampire la mascarade',
+        ]);
+        
+        Personnage::create([
+            'user_id' => User::where('name', 'Martin')->get()->first()->id,
+            'nom' => 'Ormus',
             'jeu' => 'Vampire la mascarade',
         ]);
     }

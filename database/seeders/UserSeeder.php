@@ -16,34 +16,50 @@ class UserSeeder extends Seeder
     public function run()
     {     
         User::create([
-            'name' => 'dimitri',
-            'email' => 'dimitri.krajka@gmail.com',
+            'name' => 'Dimitri',
+            'email' => 'dimitrikrajka@hotmail.fr',
             'role' => 'joueur',
-            'password' => bcrypt('secret'),
+            'password' => bcrypt('krajka_secret'),
             'remember_token' => Str::random(20)
         ]);
 
         User::create([
-            'name' => 'deborah',
-            'email' => 'deborah@gmail.com',
+            'name' => 'Déborah',
+            'email' => 'Deborah.capaldi@hotmail.fr',
             'role' => 'joueur',
-            'password' => bcrypt('secret'),
+            'password' => bcrypt('capaldi_secret'),
             'remember_token' => Str::random(20)
         ]);
 
         User::create([
-            'name' => 'mael',
-            'email' => 'mael@gmail.com',
+            'name' => 'Mael',
+            'email' => 'dauphinmael@gmail.com',
             'role' => 'joueur',
-            'password' => bcrypt('secret'),
+            'password' => bcrypt('dauphin_secret'),
             'remember_token' => Str::random(20)
         ]);
 
         User::create([
-            'name' => 'bellal',
-            'email' => 'bellal@gmail.com',
+            'name' => 'Bellal',
+            'email' => 'bellal.waissi@gmail.com',
             'role' => 'joueur',
-            'password' => bcrypt('secret'),
+            'password' => bcrypt('waissi_secret'),
+            'remember_token' => Str::random(20)
+        ]);
+
+        User::create([
+            'name' => 'Martin',
+            'email' => 'm_truffier@hotmail.fr',
+            'role' => 'joueur',
+            'password' => bcrypt('truffier_secret'),
+            'remember_token' => Str::random(20)
+        ]);
+
+        User::create([
+            'name' => 'Matthieu',
+            'email' => 'matthieu.martin2812@gmail.com',
+            'role' => 'mj',
+            'password' => bcrypt('Fnp90std@'),
             'remember_token' => Str::random(20)
         ]);
     }
