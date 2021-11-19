@@ -4,7 +4,7 @@
         <h1 class="has-text-centered is-size-4">Capacités</h1>
         <div class="columns is-mobile">
             <div class="column is-4">
-                <h2 class="has-text-centered is-size-5">Physiques</h2>
+                <h2 class="has-text-centered is-size-5 mt-4">Physiques</h2>
                 <div :class="box_style" v-for="capacite in capacites_talents" :key="capacite.id">
                     <b-button 
                         icon-left="question-circle" 
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="column is-4">
-                <h2 class="has-text-centered mb-4 is-size-5">Sociales</h2>
+                <h2 class="has-text-centered mb-4 is-size-5 mt-4">Sociales</h2>
                 <div :class="box_style" v-for="capacite in capacites_competences" :key="capacite.id">
                     <b-button 
                         icon-left="question-circle" 
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="column is-4">
-                <h2 class="has-text-centered mb-4 is-size-5">Mentales</h2>
+                <h2 class="has-text-centered mb-4 is-size-5 mt-4">Mentales</h2>
                 <div :class="box_style" v-for="capacite in capacites_connaissances" :key="capacite.id">
                     <b-button 
                         icon-left="question-circle" 
