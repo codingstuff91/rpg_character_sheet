@@ -6,7 +6,15 @@
             <div class="column is-4">
                 <h2 class="has-text-centered mb-4 is-size-5">Physiques</h2>
                 <div :class="style" v-for="attribut in attributs_physiques" :key="attribut.id">
-                    <h3 class="has-text-centered" @click="getDescription(attribut.id)">{{ attribut.nom }}</h3>
+                    <b-button 
+                        icon-left="question-circle" 
+                        size="is-small"
+                        type="is-danger"
+                        class="my-2"
+                        rounded
+                        @click="getDescription(attribut.id)"> 
+                        {{ attribut.nom }}
+                    </b-button>
                     <b-rate 
                         icon-pack="fas" 
                         :icon="icon"
@@ -20,7 +28,15 @@
             <div class="column is-4">
                 <h2 class="has-text-centered mb-4 is-size-5">Sociaux</h2>
                 <div :class="style" v-for="attribut in attributs_sociaux" :key="attribut.id">
-                    <h3 class="has-text-centered" @click="getDescription(attribut.id)">{{ attribut.nom }}</h3>
+                    <b-button 
+                        icon-left="question-circle" 
+                        size="is-small"
+                        type="is-danger"
+                        class="my-2"
+                        rounded
+                        @click="getDescription(attribut.id)"> 
+                        {{ attribut.nom }}
+                    </b-button>
                     <b-rate 
                         icon-pack="fas" 
                         :icon="icon"
@@ -34,7 +50,15 @@
             <div class="column is-4">
                 <h2 class="has-text-centered mb-4 is-size-5">Mentaux</h2>
                 <div :class="style" v-for="attribut in attributs_mentaux" :key="attribut.id">
-                    <h3 class="has-text-centered" @click="getDescription(attribut.id)">{{ attribut.nom }}</h3>
+                    <b-button 
+                        icon-left="question-circle" 
+                        size="is-small"
+                        type="is-danger"
+                        class="my-2"
+                        rounded
+                        @click="getDescription(attribut.id)"> 
+                        {{ attribut.nom }}
+                    </b-button>
                     <b-rate 
                         icon-pack="fas" 
                         :icon="icon"
