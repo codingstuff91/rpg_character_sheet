@@ -17,7 +17,7 @@
             <div class="column">
                 <h1 class="has-text-centered is-size-4">Avantages</h1>
                 <div :class="btn_wrapper" v-for="item in avantages" :key="item.nom">
-                    <h2 class="is-size-6 has-text-centered">{{ item.nom }}</h2>
+                    <h2 class="is-size-6 has-text-centered">{{ item.nom }} niveau : {{ item.niveau }}</h2>
                     <b-button 
                     type="is-danger"
                     @click="getDescription(item.description)"
@@ -31,7 +31,7 @@
             <div class="column">
                 <h1 class="has-text-centered is-size-4">Handicaps</h1>
                 <div :class="btn_wrapper" v-for="item in handicaps" :key="item.nom">
-                    <h2 class="is-size-6 has-text-centered">{{ item.nom }} </h2>
+                    <h2 class="is-size-6 has-text-centered">{{ item.nom }} niveau : {{ item.niveau }}</h2>
                     <b-button 
                     type="is-danger"
                     @click="getDescription(item.description)"
