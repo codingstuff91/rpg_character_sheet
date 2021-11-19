@@ -4,9 +4,17 @@
         <h1 class="has-text-centered is-size-4">Capacités</h1>
         <div class="columns is-mobile">
             <div class="column is-4">
-                <h2 class="has-text-centered mb-4 is-size-5">Physiques</h2>
+                <h2 class="has-text-centered is-size-5">Physiques</h2>
                 <div :class="box_style" v-for="capacite in capacites_talents" :key="capacite.id">
-                    <h3 class="has-text-centered" @click="getDescription(capacite.id)">{{ capacite.nom }}</h3>
+                    <b-button 
+                        icon-left="question-circle" 
+                        size="is-small"
+                        type="is-danger"
+                        class="mt-2"
+                        rounded
+                        @click="getDescription(capacite.id)"> 
+                        {{ capacite.nom }}
+                    </b-button>
                     <b-rate 
                         icon-pack="fas" 
                         :icon="icon"
@@ -20,7 +28,15 @@
             <div class="column is-4">
                 <h2 class="has-text-centered mb-4 is-size-5">Sociales</h2>
                 <div :class="box_style" v-for="capacite in capacites_competences" :key="capacite.id">
-                    <h3 class="has-text-centered" @click="getDescription(capacite.id)">{{ capacite.nom }}</h3>
+                    <b-button 
+                        icon-left="question-circle" 
+                        size="is-small"
+                        type="is-danger"
+                        class="mt-2"
+                        rounded
+                        @click="getDescription(capacite.id)"> 
+                        {{ capacite.nom }}
+                    </b-button>
                     <b-rate 
                         icon-pack="fas" 
                         :icon="icon"
@@ -34,7 +50,15 @@
             <div class="column is-4">
                 <h2 class="has-text-centered mb-4 is-size-5">Mentales</h2>
                 <div :class="box_style" v-for="capacite in capacites_connaissances" :key="capacite.id">
-                    <h3 class="has-text-centered" @click="getDescription(capacite.id)">{{ capacite.nom }}</h3>
+                    <b-button 
+                        icon-left="question-circle" 
+                        size="is-small"
+                        type="is-danger"
+                        class="mt-2"
+                        rounded
+                        @click="getDescription(capacite.id)"> 
+                        {{ capacite.nom }}
+                    </b-button>
                     <b-rate 
                         icon-pack="fas" 
                         :icon="icon"
@@ -67,6 +91,11 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
             personnage: {
                 type: Object,
             },
+        },
+        methods: {
+            getDescription(capacite_id) {
+                this.$emit('get_description',capacite_id)
+            }
         },
         mixins: [CaracteristiquesMixin],
         async mounted(){
