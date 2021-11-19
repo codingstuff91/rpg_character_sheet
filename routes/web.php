@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::prefix('character')->middleware('auth')->group(function(){
     Route::get('/all', [PersonnageController::class, 'index']);
-    Route::get('/{character_id}', [PersonnageController::class, 'show']);
+    Route::get('/{character_id}', [PersonnageController::class, 'show'])->middleware('check_character_owner');
     Route::get('/{character_id}/{characteristics_category_name}/levels', [CaracteristiqueController::class, 'get_levels']);
     Route::post('/{character_id}/{id_caracteristique}/update', [CaracteristiqueController::class, 'update']);
     Route::get('/{personnage_id}/{nom_caracteristique}/jauge_level', [JaugeController::class, 'get_jauge_value']);
