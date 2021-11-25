@@ -10,6 +10,13 @@ class DisciplineController extends Controller
 {
     public function index(Request $request)
     {
+        $disciplines = Discipline::all();
+
+        return view('discipline.index')->with(['disciplines' => $disciplines]);;
+    }
+
+    public function getDisciplinesByCharacter(Request $request)
+    {
         $personnage = Personnage::find($request->personnage_id);
 
         return $personnage->disciplines()->get()->groupBy('nom');
