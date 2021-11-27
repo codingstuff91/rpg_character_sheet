@@ -8,18 +8,10 @@ use App\Services\UserRoleService;
 
 class PersonnageController extends Controller
 {
-    public function index(UserRoleService $role)
+    public function index()
     {
-        $user_id = auth()->user()->id;
-
-        $characters = Personnage::where('user_id', $user_id)->get();
-
-        if($role->is_admin())
-        {
-            $characters = Personnage::all();
-        }else{
-            $characters = auth()->user()->personnages;
-        }
+        $characters = Personnage::with('user')->get();
+        // dd($characters);
         
         return view('personnage.index')->with(['personnages' => $characters]);
     }
