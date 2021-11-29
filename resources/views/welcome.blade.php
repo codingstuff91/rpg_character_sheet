@@ -31,9 +31,10 @@
             @if (Route::has('login'))
                 <div class="px-2 sm:block auth_buttons">
                     @auth
+                        <a href="/character/all" class="buttons text-sm dark:text-gray-500 mt-4">Feuilles personnages</a>
                         <form action="/logout" method="POST">
                             @csrf
-                            <input class="buttons" type="submit" value="Deconnexion">
+                            <input class="buttons text-sm dark:text-gray-500 mt-4" type="submit" value="Deconnexion">
                         </form>
                     @else
 
