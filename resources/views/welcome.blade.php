@@ -71,7 +71,9 @@
                         <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
                             <div class="flex items-center">
                                 <img src="{{ asset('img/icons/levels.png') }}" alt="levels">
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Jauges dynamiques</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold">
+                                    <p class="text-gray-900 dark:text-white">Jauges dynamiques</p>
+                                </div>
                             </div>
 
                             <div class="ml-12">
@@ -84,7 +86,9 @@
                         <div class="p-6 border-t border-gray-200 dark:border-gray-700">
                             <div class="flex items-center">
                                 <img src="{{ asset('img/icons/help.png') }}" alt="levels">
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Aides de jeu</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold">
+                                    <p class="text-gray-900 dark:text-white">Aides de jeu</p>
+                                </div>
                             </div>
 
                             <div class="ml-12">
