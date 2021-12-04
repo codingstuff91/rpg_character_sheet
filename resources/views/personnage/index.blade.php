@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="container mx-auto">
-        <h1 class="title has-text-centered has-text-danger pt-4">Personnages disponibles</h1>
+        <h1 class="main-title has-text-centered has-text-danger pt-4">Personnages disponibles</h1>
         <div class="columns">
             @foreach ($personnages as $perso)
 
