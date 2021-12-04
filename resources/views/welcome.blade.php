@@ -31,17 +31,17 @@
             @if (Route::has('login'))
                 <div class="px-2 sm:block auth_buttons">
                     @auth
-                        <a href="/character/all" class="buttons text-sm dark:text-gray-500 mt-4">Feuilles personnages</a>
+                        <a href="/character/all" class="buttons text-sm dark:text-blue-400 mt-4">Feuilles personnages</a>
                         <form action="/logout" method="POST">
                             @csrf
-                            <input class="buttons text-sm dark:text-gray-500 mt-4" type="submit" value="Deconnexion">
+                            <input class="buttons text-sm dark:text-white mt-4" type="submit" value="Deconnexion">
                         </form>
                     @else
 
-                        <a href="{{ route('login') }}" class="buttons text-sm dark:text-gray-500">Connexion</a>
+                        <a href="{{ route('login') }}" class="buttons text-sm dark:text-white">Connexion</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="buttons text-sm dark:text-gray-500">Inscription</a>
+                            <a href="{{ route('register') }}" class="buttons text-sm dark:text-white-500">Inscription</a>
                         @endif
                     @endauth
                 </div>
@@ -50,7 +50,7 @@
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex_header pt-8">
                     <h1 class="title">VAMP PERSO</h1>
-                    <h2 class="text-lg text-center">Gestion de feuilles de personnage pour "Vampire la mascarade 5ème édition"</h2>
+                    <h3 class="text-lg text-center mx-4">Gestion de feuilles de personnage pour "Vampire la mascarade 5ème édition"</h3>
                 </div>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
@@ -62,7 +62,7 @@
                             </div>
 
                             <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                <div class="mt-2 text-sm">
                                     Les joueurs ont accès aux informations de leurs personnages.
                                     Les caractéristiques sont regroupés par onglets.
                                 </div>
@@ -73,12 +73,12 @@
                             <div class="flex items-center">
                                 <img src="{{ asset('img/icons/levels.png') }}" alt="levels">
                                 <div class="ml-4 text-lg leading-7 font-semibold">
-                                    <p class="text-gray-900 dark:text-white">Jauges dynamiques</p>
+                                    <p>Jauges dynamiques</p>
                                 </div>
                             </div>
 
                             <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                <div class="mt-2 text-sm">
                                     Gestion simplifiée des jauges variables de chaque personnage (Soif, Volonté, Santé, etc...)
                                 </div>
                             </div>
@@ -88,25 +88,25 @@
                             <div class="flex items-center">
                                 <img src="{{ asset('img/icons/help.png') }}" alt="levels">
                                 <div class="ml-4 text-lg leading-7 font-semibold">
-                                    <p class="text-gray-900 dark:text-white">Aides de jeu</p>
+                                    <p>Aides de jeu</p>
                                 </div>
                             </div>
 
                             <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                <div class="mt-2 text-sm">
                                     Aide aux joueurs sur les notions importantes de la feuille (Contacts, Alliés, Attaches, etc...)
                                 </div>
                             </div>
                         </div>
 
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
+                        <div class="p-6 border-t md:border-l">
                             <div class="flex items-center">
                                 <img src="{{ asset('img/icons/search.png') }}" alt="levels">
                                 <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Consultation simplifiée</div>
                             </div>
 
                             <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                <div class="mt-2 text-sm">
                                     Consultation rapide des caracteristiques des personnages par le Maitre du Jeu (MJ).
                                 </div>
                             </div>
