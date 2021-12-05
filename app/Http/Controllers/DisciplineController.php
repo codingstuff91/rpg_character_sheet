@@ -10,9 +10,9 @@ class DisciplineController extends Controller
 {
     public function index(Request $request)
     {
-        $disciplines = Discipline::all();
+        $disciplines = Discipline::where('nom', '!=', "")->orderBy('nom')->get();
 
-        return view('discipline.index')->with(['disciplines' => $disciplines]);;
+        return view('discipline.index')->with(['disciplines' => $disciplines]);
     }
 
     public function getDisciplinesByCharacter(Request $request)
