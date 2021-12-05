@@ -15,6 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route de nettoyage du cache
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('config:clear');
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::call('config:cache');
+    return redirect()->route('home');
+});
+
 Route::prefix('character')->middleware('auth')->group(function(){
     Route::get('/all', [PersonnageController::class, 'index']);
     Route::get('/{character_id}', [PersonnageController::class, 'show'])->middleware('check_character_owner');
