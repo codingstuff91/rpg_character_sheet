@@ -8,20 +8,22 @@ use App\Services\UserRoleService;
 
 class PersonnageController extends Controller
 {
-    public function index(UserRoleService $role)
+    public function index()
     {
-        $user_id = auth()->user()->id;
+        $characters = Personnage::with('user')->get();
 
-        $characters = Personnage::where('user_id', $user_id)->get();
-
-        if($role->is_admin())
-        {
-            $characters = Personnage::all();
-        }else{
-            $characters = auth()->user()->personnages;
-        }
+        $other_characters = $characters->filter(function ($value) {
+            return $value['id'] != auth()->user()->id;
+        });
         
-        return view('personnage.index')->with(['personnages' => $characters]);
+        $user_character = $characters->filter(function ($value) {
+            return $value['id'] == auth()->user()->id;
+        });
+        
+        return view('personnage.index')->with([
+            'personnages' => $other_characters->all(),
+            'personnage_joueur' => $user_character->all()
+        ]);
     }
 
     public function show(Request $request)
