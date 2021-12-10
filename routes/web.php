@@ -30,7 +30,7 @@ Route::prefix('character')->middleware('auth')->group(function(){
     Route::post('/{character_id}/{id_caracteristique}/update', [CaracteristiqueController::class, 'update']);
     Route::get('/{personnage_id}/{nom_caracteristique}/jauge_level', [JaugeController::class, 'get_jauge_value']);
     Route::post('/{personnage_id}/{id_caracteristique}/update_jauge_level', [JaugeController::class, 'updage_jauge_value']);
-    Route::get('/{personnage_id}/disciplines', [DisciplineController::class, 'index']);
+    Route::get('/{personnage_id}/disciplines', [DisciplineController::class, 'getDisciplinesByCharacter']);
     Route::get('/{personnage_id}/avantages_handicaps', [AvantageHandicapController::class, 'index']);
     Route::get('/{personnage_id}/allies_contacts', [AllieContactController::class, 'index']);
     Route::get('/{personnage_id}/attaches', [AttacheController::class, 'index']);
