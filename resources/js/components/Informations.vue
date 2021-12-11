@@ -1,5 +1,5 @@
 <template>
-    <b-tab-item label="Infos générales">
+    <b-tab-item label="Personnage">
         <!-- Modal explication utilisation des points d'XP -->
         <b-modal v-model="isModalExperienceOpen" full-screen>
             <div class="card">
@@ -115,28 +115,38 @@
                     </div>
                 </div>
                 <div class="column">
-                    <b-message>
-                        <template #header>
-                            <div class="is-flex">
-                                <h3 class="is-size-6">{{ experience[0].nom }} (points d'XP)</h3>
 
-                            </div>
-                        </template>
-                        <div>
-                            <b-button 
-                                class="mx-2" 
-                                type="is-info"
-                                size="is-small" 
-                                icon-left="question-circle"
-                                @click="isModalExperienceOpen = !isModalExperienceOpen">
-                                Aide
-                            </b-button>
-                            <h2 class="is-size-6">{{ experience[0].niveau }} points</h2>
-                        </div>            
-                    </b-message>
                 </div>
             </div>
         </b-collapse>
+
+        <!-- Partie Experience -->
+        <b-collapse
+            class="panel"
+            animation="slide"
+            v-model="isExperienceTabOpen">
+            <template #trigger>
+                <div
+                    class="panel-heading is-flex is-justify-content-space-between is-align-items-center"
+                    role="button"
+                    aria-controls="contentIdForA11y2">
+                    <strong>Experience (points d'XP)</strong>
+                    <b-button 
+                        class="mx-2" 
+                        type="is-info"
+                        size="is-small" 
+                        icon-left="question-circle"
+                        @click="isModalExperienceOpen = !isModalExperienceOpen">
+                        Aide
+                    </b-button>
+                </div>
+            </template>
+            <div class="panel-block is-flex is-align-items-center is-justify-content-space-evenly">
+                <div class="is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
+                    <h2 class="is-size-4">{{ experience[0].niveau }} points</h2>
+                </div>
+            </div>
+        </b-collapse>       
         
         <!-- Partie ambition et désir -->
         <b-collapse
@@ -189,6 +199,7 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
                 generalInformations : [],
                 isInfosTabOpen : true,
                 isAmbitionTabOpen : true,
+                isExperienceTabOpen : true,
                 experience : [],
                 isModalExperienceOpen : false
             }

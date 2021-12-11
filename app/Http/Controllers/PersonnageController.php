@@ -19,7 +19,7 @@ class PersonnageController extends Controller
         $user_character = $characters->filter(function ($value) {
             return $value['id'] == auth()->user()->id;
         });
-        
+      
         return view('personnage.index')->with([
             'personnages' => $other_characters->all(),
             'personnage_joueur' => $user_character->all()

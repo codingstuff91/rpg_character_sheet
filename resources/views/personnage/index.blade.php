@@ -38,7 +38,9 @@
                             <span class="icon">
                                 <i class="fas fa-user"></i>
                             </span>
+
                             {{ $perso->user->name }}</h4>
+                            
                         @if ($perso->user_id == auth()->user()->id || auth()->user()->role == "mj")
                             <a href="/character/{{ $perso->id }}" class="button is-danger is-rounded is-small">Fiche perso</a>
                         @endif

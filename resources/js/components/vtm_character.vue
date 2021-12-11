@@ -23,17 +23,17 @@
 
                 <Capacites :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
                 
-                <Humanite :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
+                <Sang :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
 
                 <Sante :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
-
+                
                 <Volonte :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
-
-                <Sang :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
-                                
+                
                 <Disciplines :personnage="personnage"/>
-
+                
                 <AvantagesHandicaps :personnage="personnage"/>
+
+                <Humanite :personnage="personnage" @get_description="getDescriptionCaracteristique"/>                
                 
                 <ContactsAllies :personnage="personnage"/>
                 
