@@ -1,5 +1,5 @@
 <template>
-    <b-tab-item label="Infos générales">
+    <b-tab-item label="Personnage">
         <!-- Modal explication utilisation des points d'XP -->
         <b-modal v-model="isModalExperienceOpen" full-screen>
             <div class="card">
