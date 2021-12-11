@@ -31,9 +31,9 @@
                 
                 <Disciplines :personnage="personnage"/>
                 
-                <Humanite :personnage="personnage" @get_description="getDescriptionCaracteristique"/>                
-
                 <AvantagesHandicaps :personnage="personnage"/>
+
+                <Humanite :personnage="personnage" @get_description="getDescriptionCaracteristique"/>                
                 
                 <ContactsAllies :personnage="personnage"/>
                 
