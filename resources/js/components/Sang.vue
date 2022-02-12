@@ -44,34 +44,32 @@
                     <!-- Valeur test de soif -->
                     <b-button 
                         icon-left="question-circle" 
-                        size="is-small"
                         type="is-danger"
+                        class="text_description"
                         rounded>
                         {{ infos_puissance_sang[5].nom }}
                     </b-button>
-                    <h2 class="is-size-5 has-text-centered">{{ infos_puissance_sang[5].niveau }}</h2>
+                    <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[5].niveau }}</h2>
 
                     <!-- Degats régénérés -->
                     <b-button 
                         icon-left="question-circle" 
-                        size="is-small"
                         type="is-danger"
-                        class="mt-4"
+                        class="mt-4 text_description"
                         rounded>
                         {{ infos_puissance_sang[3].nom }}
                     </b-button>
-                    <h2 class="is-size-5 has-text-centered">{{ infos_puissance_sang[3].niveau }}</h2>
+                    <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[3].niveau }}</h2>
                     
                     <!-- Valeur coup de sang -->
                     <b-button 
                         icon-left="question-circle" 
-                        size="is-small"
                         type="is-danger"
-                        class="mt-4"
+                        class="mt-4 text_description"
                         rounded>
                         {{ infos_puissance_sang[2].nom }}
                     </b-button>
-                    <h2 class="is-size-5 has-text-centered">{{ infos_puissance_sang[2].niveau }}</h2>
+                    <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[2].niveau }}</h2>
                 </div>
             </div>
             <div class="column is-6">
@@ -79,34 +77,32 @@
                     <!-- Penalité pour se nourrir -->
                     <b-button 
                         icon-left="question-circle" 
-                        size="is-small"
                         type="is-danger"
+                        class="text_description"
                         rounded>
                         {{ infos_puissance_sang[6].nom }}
                     </b-button>
-                    <h2 class="is-size-5 has-text-centered">{{ infos_puissance_sang[6].niveau }}</h2>
+                    <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[6].niveau }}</h2>
 
                     <!-- Bonus aux pouvoirs -->
                     <b-button 
                         icon-left="question-circle" 
-                        size="is-small"
                         type="is-danger"
-                        class="mt-4"
+                        class="mt-4 text_description"
                         rounded>
                         {{ infos_puissance_sang[4].nom }}
                     </b-button>
-                    <h2 class="is-size-5 has-text-centered">{{ infos_puissance_sang[4].niveau }}</h2>
+                    <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[4].niveau }}</h2>
 
                     <!-- Score de fléau -->
                     <b-button 
                         icon-left="question-circle" 
-                        size="is-small"
                         type="is-danger"
-                        class="mt-4"
+                        class="mt-4 text_description"
                         rounded>
                         {{ infos_puissance_sang[7].nom }}
                     </b-button>
-                    <h2 class="is-size-5 has-text-centered">{{ infos_puissance_sang[7].niveau }}</h2>
+                    <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[7].niveau }}</h2>
                 </div>
             </div>
         </div>
@@ -181,5 +177,15 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
 .section_header{
     font-family: 'Vampiro One', cursive;
     color:#f14668;
+}
+
+.text_description{
+    font-size : 0.75rem;
+}
+
+@media screen and (min-width: 768px) {
+  .text_description {
+    font-size : 1.1rem;
+  }
 }
 </style>
