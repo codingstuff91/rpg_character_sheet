@@ -20,8 +20,6 @@
                 <Informations :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
 
                 <Attributs :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
-
-                <Capacites :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
                 
                 <Sang :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
 
