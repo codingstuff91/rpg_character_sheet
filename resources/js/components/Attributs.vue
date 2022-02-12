@@ -1,16 +1,15 @@
 <template>
-    <b-tab-item label="Attributs">
+    <b-tab-item label="Caractéristiques">
         <!-- Affichage des attributs -->
-        <h1 class="has-text-centered is-size-4">Attributs</h1>
+        <h1 class="has-text-centered is-size-3 section_header">Attributs</h1>
         <div class="columns is-mobile">
             <div class="column is-4">
-                <h2 class="has-text-centered mb-4 is-size-5">Physiques</h2>
+                <h2 class="has-text-centered is-size-5 category_header">Physiques</h2>
                 <div :class="style" v-for="attribut in attributs_physiques" :key="attribut.id">
                     <b-button 
                         icon-left="question-circle" 
                         size="is-small"
                         type="is-danger"
-                        class="my-2"
                         rounded
                         @click="getDescription(attribut.id)"> 
                         {{ attribut.nom }}
@@ -26,13 +25,12 @@
                 </div>
             </div>
             <div class="column is-4">
-                <h2 class="has-text-centered mb-4 is-size-5">Sociaux</h2>
+                <h2 class="has-text-centered is-size-5 category_header">Sociaux</h2>
                 <div :class="style" v-for="attribut in attributs_sociaux" :key="attribut.id">
                     <b-button 
                         icon-left="question-circle" 
                         size="is-small"
                         type="is-danger"
-                        class="my-2"
                         rounded
                         @click="getDescription(attribut.id)"> 
                         {{ attribut.nom }}
@@ -48,13 +46,12 @@
                 </div>
             </div>
             <div class="column is-4">
-                <h2 class="has-text-centered mb-4 is-size-5">Mentaux</h2>
+                <h2 class="has-text-centered is-size-5 category_header">Mentaux</h2>
                 <div :class="style" v-for="attribut in attributs_mentaux" :key="attribut.id">
                     <b-button 
                         icon-left="question-circle" 
                         size="is-small"
                         type="is-danger"
-                        class="my-2"
                         rounded
                         @click="getDescription(attribut.id)"> 
                         {{ attribut.nom }}
@@ -71,16 +68,15 @@
             </div>
         </div>
 
-        <h2 class="has-text-centered is-size-4 title">Capacités</h2>
+        <h2 class="has-text-centered is-size-3 section_header">Capacités</h2>
         <div class="columns is-mobile">
             <div class="column is-4">
-                <h2 class="has-text-centered is-size-5 mt-4">Physiques</h2>
+                <h2 class="has-text-centered is-size-5 category_header">Physiques</h2>
                 <div :class="style" v-for="capacite in capacites_talents" :key="capacite.id">
                     <b-button 
                         icon-left="question-circle" 
                         size="is-small"
                         type="is-danger"
-                        class="mt-2"
                         rounded
                         @click="getDescription(capacite.id)"> 
                         {{ capacite.nom }}
@@ -96,13 +92,12 @@
                 </div>
             </div>
             <div class="column is-4">
-                <h2 class="has-text-centered mb-4 is-size-5 mt-4">Sociales</h2>
+                <h2 class="has-text-centered mb-2 is-size-5 category_header">Sociales</h2>
                 <div :class="style" v-for="capacite in capacites_competences" :key="capacite.id">
                     <b-button 
                         icon-left="question-circle" 
                         size="is-small"
                         type="is-danger"
-                        class="mt-2"
                         rounded
                         @click="getDescription(capacite.id)"> 
                         {{ capacite.nom }}
@@ -118,13 +113,12 @@
                 </div>
             </div>
             <div class="column is-4">
-                <h2 class="has-text-centered mb-4 is-size-5 mt-4">Mentales</h2>
+                <h2 class="has-text-centered mb-2 is-size-5 category_header">Mentales</h2>
                 <div :class="style" v-for="capacite in capacites_connaissances" :key="capacite.id">
                     <b-button 
                         icon-left="question-circle" 
                         size="is-small"
                         type="is-danger"
-                        class="mt-2"
                         rounded
                         @click="getDescription(capacite.id)"> 
                         {{ capacite.nom }}
@@ -185,4 +179,13 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
 <style lang="scss" scoped>
     $rate-color : "red";
     $rate-color-active : "green";
+
+.section_header{
+    font-family: 'Vampiro One', cursive;
+    color:#f14668;
+}
+
+.category_header{
+    font-family: 'Vampiro One', cursive;
+}
 </style>
