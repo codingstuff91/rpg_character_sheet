@@ -1,149 +1,110 @@
 <template>
     <b-tab-item label="Sang">
-        <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center mt-4">
-            <div class="is-flex is-flex-direction-row">
-            <h2 class="has-text-centered mb-4 is-size-5 mr-2">Soif</h2>
-                <b-button 
-                type="is-danger"
-                has-icon
-                icon-left="ban"
-                size="is-small"
-                rounded
-                @click="resetSoif">
-                Reset
-                </b-button>
+        <div class="columns is-mobile">
+            <div class="column is-6">
+                <div :class="style">
+                    <h3 class="has-text-centered is-size-4 section_header">Niveau soif</h3>
+                    <b-button 
+                        type="is-danger"
+                        has-icon
+                        icon-left="ban"
+                        size="is-small"
+                        rounded
+                        @click="resetSoif">
+                        Reset
+                    </b-button>
+                    <b-rate icon-pack="fas"
+                        :size="size"
+                        :max="soif_max"
+                        @change="updateSoif"
+                        icon="tint"
+                        spaced
+                        v-model="soif">
+                    </b-rate>
+                </div>
             </div>
-            <b-rate icon-pack="fas"
-                :size="size"
-                :max="soif_max"
-                @change="updateSoif"
-                icon="tint"
-                spaced
-                v-model="soif">
-            </b-rate>
+            <div class="column is-6">
+                <div :class="style">
+                    <h3 class="has-text-centered is-size-4 section_header">Puiss. sang</h3>
+                    <b-rate icon-pack="fas"
+                        :size="size"
+                        :max="soif_max"
+                        @change="updateSoif"
+                        icon="tint"
+                        spaced
+                        v-model="infos_puissance_sang[1].niveau">
+                    </b-rate>
+                </div>
+            </div>
         </div>
-        <div class="is-flex is-flex-direction-column is-justify-content-center is-align-items-center mt-4">
-            <b-notification
-                type="is-danger"
-                aria-close-label="Close notification"
-                role="alert"
-                :closable="closable">
-                <h2 class="is-size-5">Puissance du sang : {{ infos_puissance_sang[1].niveau }}</h2>
-            </b-notification>
 
-            <!-- Affichage bonus coup de sang -->
-            <b-message size="is-medium" :closable="closable">
-                <template #header>
-                    <div class="block is-flex is-justify-content-center is-align-items-center mb-2">
-                        <h2 class="is-size-5 has-text-centered mr-2">{{ infos_puissance_sang[2].nom }}</h2>
-                        <b-button
-                            rounded
-                            type="is-danger"
-                            size="is-small"
-                            icon-pack="fas"
-                            icon-left="question-circle"
-                            class="ml-2"
-                            @click="getDescription(infos_puissance_sang[2].id)"
-                        />
-                    </div>
-                </template>
-                <h2 class="is-size-5 has-text-danger has-text-centered">{{ infos_puissance_sang[2].niveau }}</h2> 
-            </b-message>
+        <div class="columns is-mobile">
+            <div class="column is-6">
+                <div :class="style">
+                    <!-- Valeur test de soif -->
+                    <b-button 
+                        icon-left="question-circle" 
+                        type="is-danger"
+                        class="text_description"
+                        rounded>
+                        {{ infos_puissance_sang[5].nom }}
+                    </b-button>
+                    <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[5].niveau }}</h2>
 
-            <!-- Affichage test exaltation -->
-            <b-message size="is-medium" :closable="closable">
-                <template #header>
-                    <div class="block is-flex is-justify-content-center is-align-items-center mb-2">
-                        <h2 class="is-size-5 has-text-centered mr-2">{{ infos_puissance_sang[5].nom }}</h2>
-                        <b-button
-                            rounded
-                            type="is-danger"
-                            size="is-small"
-                            icon-pack="fas"
-                            icon-left="question-circle"
-                            class="ml-2"
-                            @click="getDescription(infos_puissance_sang[5].id)"
-                        />
-                    </div>
-                </template>
-                <h2 class="is-size-5 has-text-danger has-text-centered">{{ infos_puissance_sang[5].niveau }}</h2> 
-            </b-message>
+                    <!-- Degats régénérés -->
+                    <b-button 
+                        icon-left="question-circle" 
+                        type="is-danger"
+                        class="mt-4 text_description"
+                        rounded>
+                        {{ infos_puissance_sang[3].nom }}
+                    </b-button>
+                    <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[3].niveau }}</h2>
+                    
+                    <!-- Valeur coup de sang -->
+                    <b-button 
+                        icon-left="question-circle" 
+                        type="is-danger"
+                        class="mt-4 text_description"
+                        rounded>
+                        {{ infos_puissance_sang[2].nom }}
+                    </b-button>
+                    <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[2].niveau }}</h2>
+                </div>
+            </div>
+            <div class="column is-6">
+                <div :class="style">
+                    <!-- Penalité pour se nourrir -->
+                    <b-button 
+                        icon-left="question-circle" 
+                        type="is-danger"
+                        class="text_description"
+                        rounded>
+                        {{ infos_puissance_sang[6].nom }}
+                    </b-button>
+                    <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[6].niveau }}</h2>
 
-            <!-- Affichage Pénalité pour se nourrir -->
-            <b-message size="is-medium" :closable="closable">
-                <template #header>
-                    <div class="block is-flex is-justify-content-center is-align-items-center mb-2">
-                        <h2 class="is-size-5 has-text-centered mr-2">{{ infos_puissance_sang[6].nom }}</h2>
-                        <b-button
-                            rounded
-                            type="is-danger"
-                            size="is-small"
-                            icon-pack="fas"
-                            icon-left="question-circle"
-                            class="ml-2"
-                            @click="getDescription(infos_puissance_sang[6].id)"
-                        />
-                    </div>
-                </template>
-                <h2 class="is-size-5 has-text-danger has-text-centered">{{ infos_puissance_sang[6].niveau }}</h2> 
-            </b-message>
+                    <!-- Bonus aux pouvoirs -->
+                    <b-button 
+                        icon-left="question-circle" 
+                        type="is-danger"
+                        class="mt-4 text_description"
+                        rounded>
+                        {{ infos_puissance_sang[4].nom }}
+                    </b-button>
+                    <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[4].niveau }}</h2>
 
-            <!-- Affichage dégats régénérés -->
-            <b-message size="is-medium" :closable="closable">
-                <template #header>
-                    <div class="block is-flex is-justify-content-center is-align-items-center mb-2">
-                        <h2 class="is-size-5 has-text-centered mr-2">{{ infos_puissance_sang[3].nom }}</h2>
-                        <b-button
-                            rounded
-                            type="is-danger"
-                            size="is-small"
-                            icon-pack="fas"
-                            icon-left="question-circle"
-                            class="ml-2"
-                            @click="getDescription(infos_puissance_sang[3].id)"
-                        />
-                    </div>
-                </template>
-                <h2 class="is-size-5 has-text-danger has-text-centered">{{ infos_puissance_sang[3].niveau }}</h2> 
-            </b-message>
-
-            <!-- Affichage Bonus aux pouvoirs -->
-            <b-message size="is-medium" :closable="closable">
-                <template #header>
-                    <div class="block is-flex is-justify-content-center is-align-items-center mb-2">
-                        <h2 class="is-size-5 has-text-centered mr-2">{{ infos_puissance_sang[4].nom }}</h2>
-                        <b-button
-                            rounded
-                            type="is-danger"
-                            size="is-small"
-                            icon-pack="fas"
-                            icon-left="question-circle"
-                            class="ml-2"
-                            @click="getDescription(infos_puissance_sang[4].id)"
-                        />
-                    </div>
-                </template>
-                <h2 class="is-size-5 has-text-danger has-text-centered">{{ infos_puissance_sang[4].niveau }}</h2> 
-            </b-message>
-
-            <!-- Affichage score de fléau -->
-            <b-message size="is-medium" :closable="closable">
-                <template #header>
-                    <div class="block is-flex is-justify-content-center is-align-items-center mb-2">
-                        <h2 class="is-size-5 has-text-centered mr-2">{{ infos_puissance_sang[7].nom }}</h2>
-                        <b-button
-                            rounded
-                            type="is-danger"
-                            size="is-small"
-                            icon-pack="fas"
-                            icon-left="question-circle"
-                            class="ml-2"
-                            @click="getDescription(infos_puissance_sang[7].id)"
-                        />
-                    </div>
-                </template>
-                <h2 class="is-size-5 has-text-danger has-text-centered">{{ infos_puissance_sang[7].niveau }}</h2> 
-            </b-message>
+                    <!-- Score de fléau -->
+                    <b-button 
+                        icon-left="question-circle" 
+                        type="is-danger"
+                        class="mt-4 text_description"
+                        rounded>
+                        {{ infos_puissance_sang[7].nom }}
+                    </b-button>
+                    <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[7].niveau }}</h2>
+                </div>
+            </div>
         </div>
     </b-tab-item>
 </template>
@@ -158,7 +119,8 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
                soif : 0,
                size : 'is-large',
                infos_puissance_sang : [],
-               closable : false
+               closable : false,
+               style : 'is-flex is-flex-direction-column is-justify-content-center is-align-items-center'
             }
         },
         props: {
@@ -212,5 +174,18 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
 </script>
 
 <style lang="scss" scoped>
+.section_header{
+    font-family: 'Vampiro One', cursive;
+    color:#f14668;
+}
 
+.text_description{
+    font-size : 0.75rem;
+}
+
+@media screen and (min-width: 768px) {
+  .text_description {
+    font-size : 1.1rem;
+  }
+}
 </style>
