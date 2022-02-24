@@ -17,8 +17,10 @@
         </b-modal>
         <div class="row justify-content-center">
             <b-tabs>
-                <Informations :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
+                <!-- <Informations :personnage="personnage" @get_description="getDescriptionCaracteristique"/> -->
 
+                <LancerDes :personnage="personnage"/>
+<!-- 
                 <Attributs :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
                 
                 <Sang :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
@@ -35,7 +37,7 @@
                 
                 <ContactsAllies :personnage="personnage"/>
                 
-                <AttachesConvictions :personnage="personnage"/>
+                <AttachesConvictions :personnage="personnage"/> -->
             </b-tabs>
         </div>
 
@@ -56,6 +58,7 @@ import ContactsAllies from './ContactsAllies.vue';
 import Informations from './Informations.vue';
 import AttachesConvictions from './AttachesConvictions.vue';
 import Humanite from './Humanite.vue';
+import LancerDes from './LancerDes.vue';
 
     export default {
         data() {
@@ -76,7 +79,8 @@ import Humanite from './Humanite.vue';
             ContactsAllies,
             Informations,
             AttachesConvictions,
-            Humanite
+            Humanite,
+            LancerDes
         },
         props: {
             personnage: {
