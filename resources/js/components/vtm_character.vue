@@ -21,6 +21,8 @@
 
                 <Attributs :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
                 
+                <LancerDes :personnage="personnage"/>
+
                 <Sang :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
 
                 <Sante :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
@@ -56,6 +58,7 @@ import ContactsAllies from './ContactsAllies.vue';
 import Informations from './Informations.vue';
 import AttachesConvictions from './AttachesConvictions.vue';
 import Humanite from './Humanite.vue';
+import LancerDes from './LancerDes.vue';
 
     export default {
         data() {
@@ -76,7 +79,8 @@ import Humanite from './Humanite.vue';
             ContactsAllies,
             Informations,
             AttachesConvictions,
-            Humanite
+            Humanite,
+            LancerDes
         },
         props: {
             personnage: {

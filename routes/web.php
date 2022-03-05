@@ -35,6 +35,7 @@ Route::prefix('character')->middleware('auth')->group(function(){
     Route::get('/{personnage_id}/allies_contacts', [AllieContactController::class, 'index']);
     Route::get('/{personnage_id}/attaches', [AttacheController::class, 'index']);
     Route::get('/{personnage_id}/convictions', [ConvictionController::class, 'index']);
+    Route::post('/lancer_des', [PersonnageController::class, 'lancer_des']);
 });
 
 /** Route des Descriptions de caracteristiques */
