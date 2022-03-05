@@ -17,12 +17,12 @@
         </b-modal>
         <div class="row justify-content-center">
             <b-tabs>
-                <!-- <Informations :personnage="personnage" @get_description="getDescriptionCaracteristique"/> -->
+                <Informations :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
 
-                <LancerDes :personnage="personnage"/>
-<!-- 
                 <Attributs :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
                 
+                <LancerDes :personnage="personnage"/>
+
                 <Sang :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
 
                 <Sante :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
@@ -37,7 +37,7 @@
                 
                 <ContactsAllies :personnage="personnage"/>
                 
-                <AttachesConvictions :personnage="personnage"/> -->
+                <AttachesConvictions :personnage="personnage"/>
             </b-tabs>
         </div>
 
