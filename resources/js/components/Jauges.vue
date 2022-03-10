@@ -14,7 +14,7 @@
                 </div>
             </template>
             <div class="panel-block is-flex is-flex-direction-column is-justify-content-center">
-                <h1 class="title is-size-4">Dégats contondants / superficiels</h1>
+                <h1 class="title is-size-4">Dégats superficiels</h1>
                 <b-button
                     class="mr-2"
                     type="is-danger"
@@ -81,6 +81,17 @@
                     @change="updateJaugeVolonte"
                     v-model="volonte">
                 </b-rate>
+                <b-notification
+                    type="is-success"
+                    aria-close-label="Close notification"
+                    role="alert">
+                    <p class="my-2">Utiliser des points de volonté pour :</p>
+                    <ul>
+                        <li>=> Relancer 3 dés max de tout groupement (pas les dés de soif, ni pour les jets d'humanité et de volonté)</li>
+                        <li>=> Pouvoir contrôler son personnage pendant un tour durant une frénésie</li>
+                        <li>=> Ignorer le malus de santé "affaibli" du à des dégats de santé pendant un tour</li>
+                    </ul>
+                </b-notification>
             </div>
         </b-collapse>
         <!-- Jauge humanité -->
@@ -138,6 +149,14 @@
                     @change="updateScoreFletrissures"
                     v-model="scores[1].niveau">
                 </b-rate>
+                <b-notification
+                    type="is-warning"
+                    aria-close-label="Close notification"
+                    has-icon
+                    role="alert">
+                    <p class="my-2"><span class="has-text-weight-bold">Gain de flétrissures =></span> Le personnage agit contre une de ses convictions</p>
+                    <p class="my-2"><span class="has-text-weight-bold">+1 flétrissure =></span> Si Acte bestial</p>
+                </b-notification>
             </div>
         </b-collapse>
     </b-tab-item>
