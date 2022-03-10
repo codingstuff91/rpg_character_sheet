@@ -17,29 +17,21 @@
         </b-modal>
         <div class="row justify-content-center">
             <b-tabs>
-                <!-- <Informations :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
+                <Informations :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
 
                 <Attributs :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
                 
-                <LancerDes :personnage="personnage"/> -->
+                <LancerDes :personnage="personnage"/>
 
-                <Jauges :personnage="personnage"/>
-
-                <!-- <Sang :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
-
-                <Sante :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
-                
-                <Volonte :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
-                
+                <Jauges :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
+                                
                 <Disciplines :personnage="personnage"/>
                 
                 <AvantagesHandicaps :personnage="personnage"/>
-
-                <Humanite :personnage="personnage" @get_description="getDescriptionCaracteristique"/>                
                 
                 <ContactsAllies :personnage="personnage"/>
                 
-                <AttachesConvictions :personnage="personnage"/> -->
+                <AttachesConvictions :personnage="personnage"/>
             </b-tabs>
         </div>
 
