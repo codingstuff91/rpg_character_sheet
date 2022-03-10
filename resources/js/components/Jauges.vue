@@ -195,6 +195,7 @@
                     role="button"
                     aria-controls="contentIdForA11y2">
                     <strong>Volonté</strong>
+                    <img src="/img/leadership.png" class="ml-4" alt="">
                 </div>
             </template>
             <div class="panel-block is-flex is-flex-direction-column is-justify-content-center">
@@ -232,6 +233,7 @@
                     role="button"
                     aria-controls="contentIdForA11y2">
                     <strong>Humanité</strong>
+                    <img src="/img/angel.png" class="ml-4" alt="">
                 </div>
             </template>
             <div class="panel-block is-flex is-flex-direction-column is-justify-content-center">
