@@ -23,17 +23,11 @@
                 
                 <LancerDes :personnage="personnage"/>
 
-                <Sang :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
-
-                <Sante :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
-                
-                <Volonte :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
-                
+                <Jauges :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
+                                
                 <Disciplines :personnage="personnage"/>
                 
                 <AvantagesHandicaps :personnage="personnage"/>
-
-                <Humanite :personnage="personnage" @get_description="getDescriptionCaracteristique"/>                
                 
                 <ContactsAllies :personnage="personnage"/>
                 
@@ -59,6 +53,7 @@ import Informations from './Informations.vue';
 import AttachesConvictions from './AttachesConvictions.vue';
 import Humanite from './Humanite.vue';
 import LancerDes from './LancerDes.vue';
+import Jauges from './Jauges.vue';
 
     export default {
         data() {
@@ -80,7 +75,8 @@ import LancerDes from './LancerDes.vue';
             Informations,
             AttachesConvictions,
             Humanite,
-            LancerDes
+            LancerDes,
+            Jauges
         },
         props: {
             personnage: {
