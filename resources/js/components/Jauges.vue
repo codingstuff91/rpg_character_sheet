@@ -1,5 +1,126 @@
 <template>
     <b-tab-item label="Jauges">
+        <!-- Jauges de soif -->
+        <b-collapse
+            class="panel"
+            animation="slide"
+            :open="jaugeSanteVisible">
+            <template #trigger>
+                <div
+                    class="panel-heading is-flex is-justify-content-space-between is-align-items-center"
+                    role="button"
+                    aria-controls="contentIdForA11y2">
+                    <strong>Soif / Sang</strong>
+                </div>
+            </template>
+            <div class="panel-block is-flex is-flex-direction-column is-justify-content-center">
+                <div class="columns is-mobile">
+                    <div class="column is-6">
+                        <div :class="style">
+                            <h3 class="has-text-centered is-size-4 section_header">Niveau soif</h3>
+                            <b-button 
+                                type="is-danger"
+                                has-icon
+                                icon-left="ban"
+                                size="is-small"
+                                rounded
+                                @click="resetSoif">
+                                Reset
+                            </b-button>
+                            <b-rate icon-pack="fas"
+                                :size="size"
+                                :max="soif_max"
+                                @change="updateSoif"
+                                icon="tint"
+                                spaced
+                                v-model="soif">
+                            </b-rate>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div :class="style">
+                            <h3 class="has-text-centered is-size-4 section_header">Puiss. sang</h3>
+                            <b-rate icon-pack="fas"
+                                :size="size"
+                                :max="soif_max"
+                                @change="updateSoif"
+                                icon="tint"
+                                spaced
+                                v-model="infos_puissance_sang[1].niveau">
+                            </b-rate>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns is-mobile">
+                    <div class="column is-6">
+                        <div :class="style">
+                            <!-- Valeur test de soif -->
+                            <b-button 
+                                icon-left="question-circle" 
+                                type="is-danger"
+                                class="text_description"
+                                rounded>
+                                {{ infos_puissance_sang[5].nom }}
+                            </b-button>
+                            <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[5].niveau }}</h2>
+
+                            <!-- Degats régénérés -->
+                            <b-button 
+                                icon-left="question-circle" 
+                                type="is-danger"
+                                class="mt-4 text_description"
+                                rounded>
+                                {{ infos_puissance_sang[3].nom }}
+                            </b-button>
+                            <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[3].niveau }}</h2>
+                            
+                            <!-- Valeur coup de sang -->
+                            <b-button 
+                                icon-left="question-circle" 
+                                type="is-danger"
+                                class="mt-4 text_description"
+                                rounded>
+                                {{ infos_puissance_sang[2].nom }}
+                            </b-button>
+                            <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[2].niveau }}</h2>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div :class="style">
+                            <!-- Penalité pour se nourrir -->
+                            <b-button 
+                                icon-left="question-circle" 
+                                type="is-danger"
+                                class="text_description"
+                                rounded>
+                                {{ infos_puissance_sang[6].nom }}
+                            </b-button>
+                            <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[6].niveau }}</h2>
+
+                            <!-- Bonus aux pouvoirs -->
+                            <b-button 
+                                icon-left="question-circle" 
+                                type="is-danger"
+                                class="mt-4 text_description"
+                                rounded>
+                                {{ infos_puissance_sang[4].nom }}
+                            </b-button>
+                            <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[4].niveau }}</h2>
+
+                            <!-- Score de fléau -->
+                            <b-button 
+                                icon-left="question-circle" 
+                                type="is-danger"
+                                class="mt-4 text_description"
+                                rounded>
+                                {{ infos_puissance_sang[7].nom }}
+                            </b-button>
+                            <h2 class="is-size-5 has-text-centered text_description">{{ infos_puissance_sang[7].niveau }}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </b-collapse>        
         <!-- Jauge de santé -->
         <b-collapse
             class="panel"
@@ -184,6 +305,11 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
                 humanite_max : 10,
                 humanite : 7,
                 scores : [],
+                soif_max : 5,
+                soif : 0,
+                infos_puissance_sang : [],
+                closable : false,
+                style : 'is-flex is-flex-direction-column is-justify-content-center is-align-items-center'
             }
         },
         computed: {
@@ -268,6 +394,42 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
             resetScoreFletrissures(){
                 this.updateScoreFletrissures(0)
                 this.scores[1].niveau = 0
+            },
+            getInfosSang(personnage_id,caracteristique){
+                axios.get(`/character/${personnage_id}/${caracteristique}/levels`).then(response => {
+                    this.infos_puissance_sang = response.data
+                    this.soif = response.data[0].niveau
+                })
+            },
+            getDescription(caracteristique_id){
+                this.$emit('get_description',caracteristique_id)
+            },
+            updateSoif(new_value){
+                axios.post(`/character/${this.personnage.id}/${this.infos_puissance_sang[0].id}/update`, {
+                    new_value
+                }).then(response => {
+                    console.log(response.data);
+                }).catch(error => {
+                    console.log(error);
+                    this.$buefy.toast.open({
+                        message: "Erreur lors de la de mise à jour",
+                        type: 'is-danger'
+                    })                    
+                })
+            },
+            resetSoif(){
+                axios.post(`/character/${this.personnage.id}/${this.infos_puissance_sang[0].id}/update`, {
+                    new_value : 0
+                }).then(response => {
+                    console.log(response.data);
+                    this.soif = 0
+                }).catch(error => {
+                    console.log(error);
+                    this.$buefy.toast.open({
+                        message: "Erreur lors de la de mise à jour",
+                        type: 'is-danger'
+                    })                    
+                })
             }
         },
         async mounted() {
@@ -275,6 +437,15 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
             await this.getJaugeValue(this.personnage.id, 'Dégats Aggravés', 'degats_aggraves', 'degats_aggraves_max', 'jauge_degats_aggraves_id')
             await this.getJaugeValue(this.personnage.id, 'Volonté', 'volonte', 'volonte_max', 'jauge_volonte_id')
             await this.getCaracteristiquesLevels(this.personnage.id, 'Humanité', 'scores')
+            await this.getInfosSang(this.personnage.id, 'Sang')
+
         },
     }
 </script>
+
+<style scoped>
+.section_header{
+    font-family: 'Vampiro One', cursive;
+    color:#f14668;
+}
+</style>
