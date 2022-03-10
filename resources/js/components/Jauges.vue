@@ -83,6 +83,63 @@
                 </b-rate>
             </div>
         </b-collapse>
+        <!-- Jauge humanité -->
+        <b-collapse
+            class="panel"
+            animation="slide"
+            :open="jaugeVolonteVisible">
+            <template #trigger>
+                <div
+                    class="panel-heading is-flex is-justify-content-space-between is-align-items-center"
+                    role="button"
+                    aria-controls="contentIdForA11y2">
+                    <strong>Humanité</strong>
+                </div>
+            </template>
+            <div class="panel-block is-flex is-flex-direction-column is-justify-content-center">
+                <!-- score humanité -->
+                <h1 class="title is-size-4">Humanité</h1>
+                <b-rate 
+                    icon-pack="fas" 
+                    :max="humanite_max"
+                    icon='cross'
+                    spaced
+                    show-score="true"
+                    :size="size"
+                    disabled
+                    v-model="scores[0].niveau">
+                </b-rate>
+                <b-notification
+                    type="is-warning"
+                    aria-close-label="Close notification"
+                    has-icon
+                    role="alert">
+                    <p class="my-2"><span class="has-text-weight-bold">Humanité à 0 =></span> Le personnage devient une bete sanguinaire</p>
+                    <p class="my-2"><span class="has-text-weight-bold">Perte d'1 point d'humanité =></span> Echec au jet de remords</p>
+                </b-notification>
+                <!-- Score de fletrissures -->
+                <h1 class="title is-size-4">Fletrissures</h1>
+                <b-button
+                    class="mr-2"
+                    type="is-danger"
+                    has-icon
+                    icon-left="ban"
+                    size="is-small"
+                    rounded
+                    @click="resetScoreFletrissures">
+                    Reset
+                </b-button>
+                <b-rate 
+                    icon-pack="fas" 
+                    :max="fletrissures_max"
+                    icon='fist-raised'
+                    spaced
+                    :size="size"
+                    @change="updateScoreFletrissures"
+                    v-model="scores[1].niveau">
+                </b-rate>
+            </div>
+        </b-collapse>
     </b-tab-item>
 </template>
 
@@ -104,7 +161,15 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
                 jauge_degats_aggraves_id : 0,
                 volonte : 7,
                 volonte_max : 10,
-                jauge_volonte_id : 0, 
+                jauge_volonte_id : 0,
+                humanite_max : 10,
+                humanite : 7,
+                scores : [],
+            }
+        },
+        computed: {
+            fletrissures_max() {
+                return this.humanite_max - this.scores[0].niveau
             }
         },
         props: {
@@ -167,12 +232,30 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
                         type: 'is-danger'
                     })                    
                 })
+            },
+            updateScoreFletrissures(new_value){
+                axios.post(`/character/${this.personnage.id}/${this.scores[1].id}/update`, {
+                    new_value
+                }).then(response => {
+                    console.log(response.data);
+                }).catch(error => {
+                    console.log(error);
+                    this.$buefy.toast.open({
+                        message: "Erreur lors de la de mise à jour",
+                        type: 'is-danger'
+                    })                    
+                })
+            },
+            resetScoreFletrissures(){
+                this.updateScoreFletrissures(0)
+                this.scores[1].niveau = 0
             }
         },
         async mounted() {
             await this.getJaugeValue(this.personnage.id, 'Dégats Contondants', 'degats_contondants', 'degats_contondants_max', 'jauge_degats_contondants_id')
             await this.getJaugeValue(this.personnage.id, 'Dégats Aggravés', 'degats_aggraves', 'degats_aggraves_max', 'jauge_degats_aggraves_id')
             await this.getJaugeValue(this.personnage.id, 'Volonté', 'volonte', 'volonte_max', 'jauge_volonte_id')
+            await this.getCaracteristiquesLevels(this.personnage.id, 'Humanité', 'scores')
         },
     }
 </script>
