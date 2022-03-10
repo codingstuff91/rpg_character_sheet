@@ -1,5 +1,9 @@
 <template>
     <b-tab-item label="Jauges">
+        <template #header>
+            <img src="/img/gauge.png" class="mr-2" alt="">
+            <span> Jauges</span>
+        </template>
         <!-- Jauges de soif -->
         <b-collapse
             class="panel"
@@ -11,6 +15,7 @@
                     role="button"
                     aria-controls="contentIdForA11y2">
                     <strong>Soif / Sang</strong>
+                    <img src="/img/bloody.png">                    
                 </div>
             </template>
             <div class="panel-block is-flex is-flex-direction-column is-justify-content-center">
@@ -132,6 +137,7 @@
                     role="button"
                     aria-controls="contentIdForA11y2">
                     <strong>Santé</strong>
+                    <img src="/img/health.png">
                 </div>
             </template>
             <div class="panel-block is-flex is-flex-direction-column is-justify-content-center">
