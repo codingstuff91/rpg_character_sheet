@@ -67,11 +67,20 @@
                     class="panel-heading is-flex is-justify-content-space-between is-align-items-center"
                     role="button"
                     aria-controls="contentIdForA11y2">
-                    <strong>Santé</strong>
+                    <strong>Volonté</strong>
                 </div>
             </template>
             <div class="panel-block is-flex is-flex-direction-column is-justify-content-center">
-                <h1>Jauge de volonté</h1>
+                <h1 class="title is-size-4">Jauge de volonté</h1>
+                <b-rate 
+                    icon-pack="fas" 
+                    :max="volonte_max"
+                    icon='fist-raised'
+                    spaced
+                    :size="size"
+                    @change="updateJaugeVolonte"
+                    v-model="volonte">
+                </b-rate>
             </div>
         </b-collapse>
     </b-tab-item>
@@ -92,7 +101,10 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
                 degats_aggraves_max : 7,
                 size : 'is-large',
                 jauge_degats_contondants_id : 0,
-                jauge_degats_aggraves_id : 0
+                jauge_degats_aggraves_id : 0,
+                volonte : 7,
+                volonte_max : 10,
+                jauge_volonte_id : 0, 
             }
         },
         props: {
@@ -143,10 +155,24 @@ import CaracteristiquesMixin from '../mixins/caracteristiquesMixin.vue'
                 this.updateDegatsAggraves(0)
                 this.degats_aggraves = 0
             },
+            updateJaugeVolonte(new_value){
+                axios.post(`/character/${this.personnage.id}/${this.jauge_volonte_id}/update_jauge_level`, {
+                    new_value
+                }).then(response => {
+                    console.log(response.data);
+                }).catch(error => {
+                    console.log(error);
+                    this.$buefy.toast.open({
+                        message: "Erreur lors de la de mise à jour",
+                        type: 'is-danger'
+                    })                    
+                })
+            }
         },
         async mounted() {
             await this.getJaugeValue(this.personnage.id, 'Dégats Contondants', 'degats_contondants', 'degats_contondants_max', 'jauge_degats_contondants_id')
             await this.getJaugeValue(this.personnage.id, 'Dégats Aggravés', 'degats_aggraves', 'degats_aggraves_max', 'jauge_degats_aggraves_id')
+            await this.getJaugeValue(this.personnage.id, 'Volonté', 'volonte', 'volonte_max', 'jauge_volonte_id')
         },
     }
 </script>
