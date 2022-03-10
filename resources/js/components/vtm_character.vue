@@ -21,8 +21,6 @@
 
                 <Attributs :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
                 
-                <LancerDes :personnage="personnage"/>
-
                 <Jauges :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
                                 
                 <Disciplines :personnage="personnage"/>
@@ -32,6 +30,8 @@
                 <ContactsAllies :personnage="personnage"/>
                 
                 <AttachesConvictions :personnage="personnage"/>
+
+                <LancerDes :personnage="personnage"/>
             </b-tabs>
         </div>
 
