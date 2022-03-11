@@ -134,7 +134,8 @@
                     class="panel-heading is-flex is-justify-content-space-between is-align-items-center"
                     role="button"
                     aria-controls="contentIdForA11y2">
-                    <strong>Experience (points d'XP)</strong>
+                    <strong>Experience (XP)</strong>
+                    <img src="/img/experience.png">
                     <b-button 
                         class="mx-2" 
                         type="is-info"
