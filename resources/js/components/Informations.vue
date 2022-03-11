@@ -1,5 +1,9 @@
 <template>
     <b-tab-item label="Personnage">
+        <template #header>
+            <img src="/img/character.png" class="mr-2" alt="">
+            <span>Personnage</span>
+        </template>
         <!-- Modal explication utilisation des points d'XP -->
         <b-modal v-model="isModalExperienceOpen" full-screen>
             <div class="card">
