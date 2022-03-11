@@ -53,6 +53,7 @@
                     role="button"
                     aria-controls="contentIdForA11y2">
                     <strong>Personnage</strong>
+                    <img src="/img/icons/vampire_small.png">
                 </div>
             </template>
             <div class="panel-block columns is-mobile">
@@ -164,6 +165,7 @@
                     role="button"
                     aria-controls="contentIdForA11y2">
                     <strong>Ambition / Désir</strong>
+                    <img src="/img/imagination.png" alt="">
                 </div>
             </template>
             <div class="panel-block is-flex is-align-items-center is-justify-content-space-evenly">
