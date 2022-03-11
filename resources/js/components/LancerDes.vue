@@ -1,5 +1,9 @@
 <template>
     <b-tab-item label="Lancer de dès">
+        <template #header>
+            <img src="/img/dice.png" class="mr-2" alt="">
+            <span> Lancer de dés</span>
+        </template>
         <b-collapse
             class="panel"
             animation="slide">
@@ -9,6 +13,7 @@
                     role="button"
                     aria-controls="contentIdForA11y2">
                     <strong>Lancer de dés</strong>
+                    <img src="/img/dice.png" class="ml-4" alt="">
                 </div>
             </template>
             <div class="panel-block is-flex is-flex-direction-column">

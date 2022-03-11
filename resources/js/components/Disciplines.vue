@@ -1,5 +1,9 @@
 <template>
     <b-tab-item label="Disciplines">
+        <template #header>
+            <img src="/img/punch.png" class="mr-2" alt="">
+            <span>Disciplines</span>
+        </template>
         <b-modal v-model="descriptionModal" full-screen>
             <div class="card">
                 <div class="card-content">

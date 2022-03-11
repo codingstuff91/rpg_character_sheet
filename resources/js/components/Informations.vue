@@ -1,5 +1,9 @@
 <template>
     <b-tab-item label="Personnage">
+        <template #header>
+            <img src="/img/character.png" class="mr-2" alt="">
+            <span>Personnage</span>
+        </template>
         <!-- Modal explication utilisation des points d'XP -->
         <b-modal v-model="isModalExperienceOpen" full-screen>
             <div class="card">
@@ -49,6 +53,7 @@
                     role="button"
                     aria-controls="contentIdForA11y2">
                     <strong>Personnage</strong>
+                    <img src="/img/icons/vampire_small.png">
                 </div>
             </template>
             <div class="panel-block columns is-mobile">
@@ -130,7 +135,8 @@
                     class="panel-heading is-flex is-justify-content-space-between is-align-items-center"
                     role="button"
                     aria-controls="contentIdForA11y2">
-                    <strong>Experience (points d'XP)</strong>
+                    <strong>Experience (XP)</strong>
+                    <img src="/img/experience.png">
                     <b-button 
                         class="mx-2" 
                         type="is-info"
@@ -159,6 +165,7 @@
                     role="button"
                     aria-controls="contentIdForA11y2">
                     <strong>Ambition / Désir</strong>
+                    <img src="/img/imagination.png" alt="">
                 </div>
             </template>
             <div class="panel-block is-flex is-align-items-center is-justify-content-space-evenly">
