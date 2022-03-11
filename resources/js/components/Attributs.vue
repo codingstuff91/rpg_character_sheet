@@ -1,5 +1,9 @@
 <template>
     <b-tab-item label="Caractéristiques">
+        <template #header>
+            <img src="/img/level.png" class="mr-2" alt="">
+            <span>Caractéristiques</span>
+        </template>
         <!-- Affichage des attributs -->
         <h1 class="has-text-centered is-size-3 section_header">Attributs</h1>
         <div class="columns is-mobile">
