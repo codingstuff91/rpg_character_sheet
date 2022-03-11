@@ -9,10 +9,12 @@
         <template #end>
             <b-navbar-item tag="div">
                 <div>
-                    <a href="/" class="button">
+                    <a href="/" class="button mr-2">
+                        <img src="/img/home.png" class="mr-2">
                         <strong>Accueil</strong>
                     </a>
                     <a href="/character/all" class="button is-danger">
+                        <img src="/img/character.png" class="mr-2">
                         <strong>Personnages</strong>
                     </a>
                 </div>
