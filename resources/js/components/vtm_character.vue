@@ -16,7 +16,7 @@
             </div>
         </b-modal>
         <div class="row justify-content-center">
-            <b-tabs>
+            <b-tabs class="mt-4">
                 <Informations :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
 
                 <Attributs :personnage="personnage" @get_description="getDescriptionCaracteristique"/>
